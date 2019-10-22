@@ -1,4 +1,7 @@
-# desktop-refresh-prototypes
+# Wikipedia-vue-prototypes
+
+An vue-cli generated app used to clone wikipedia via various APIs.
+Most of the state & api logic is cribbed from https://github.com/santhoshtr/wikivue
 
 ## Project setup
 ```
