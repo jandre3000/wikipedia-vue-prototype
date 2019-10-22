@@ -65,7 +65,6 @@ function fetchArticleActionAPI(language, title) {
 function process(articleData) {
   const sections = [];
   const toc = [];
-  debugger;
   const articleSections = [
     ...articleData.lead.sections,
     ...articleData.remaining.sections
