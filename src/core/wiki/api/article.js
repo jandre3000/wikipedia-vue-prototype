@@ -50,6 +50,7 @@ function fetchArticleActionAPI(language, title) {
     .then(response => {
       const data = {
         lead: {
+          normalizedtitle: response.data.parse.title,
           sections: [
             {
               text: response.data.parse.text

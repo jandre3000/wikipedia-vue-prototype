@@ -75,7 +75,6 @@ const getters = {};
 const actions = {
   fetch({ commit, dispatch }, articleRequest) {
     commit("setLoadingStatus", "loading");
-    commit("setTitle", articleRequest.title);
     articleApi
       .fetchArticle(
         articleRequest.language,
