@@ -12,7 +12,7 @@
         <h1 id="firstHeading" class="firstHeading" v-if="!isMainPage">
           {{ title }}
         </h1>
-        <jquery-uls v-if="languages.length > 0"></jquery-uls>
+        <jquery-uls v-if="languages.length > 0" :key="ulsKey"></jquery-uls>
       </div>
     </template>
 
@@ -58,7 +58,7 @@ import "../globalSkinComponents.js";
 export default {
   data() {
     return {
-      componentKey: 0
+      ulsKey: 0
     };
   },
   computed: {
@@ -92,7 +92,7 @@ export default {
       }
     },
     forceRerender() {
-      this.componentKey += 1;
+      this.ulsKey += 1;
     }
   }
 };

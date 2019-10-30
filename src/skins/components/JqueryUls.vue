@@ -3,7 +3,7 @@
     <div id="uls-button">
       <mw-button>
         <span class="language-icon"></span>
-        {{ Object.keys(this.languages).length - 1 }}
+        {{ Object.keys(this.languages).length }}
         languages
         <span class="down-icon"></span>
       </mw-button>
@@ -66,10 +66,12 @@ $.fn.uls.Constructor.prototype.show = function() {
 
   this.$menu.addClass(widthClasses[this.menuWidth]);
 
-  // eslint-disable-next-line
-  $("#uls").prepend(this.$menu);
-  this.i18n();
-  this.initialized = true;
+  if (!this.initialized) {
+    // eslint-disable-next-line
+	$( '#uls' ).prepend( this.$menu );
+    this.i18n();
+    this.initialized = true;
+  }
 
   this.$menu.css(this.position());
   this.$menu.show();
@@ -95,15 +97,25 @@ export default {
       );
     }
   },
-  watch: {
-    languages: function(val) {
-      // eslint-disable-next-line
-      $(this.$el).uls({
-        left: 0,
-        top: "100%",
-        languages: val
+  methods: {
+    languageSelected(lang) {
+      const langLink = this.$store.state.article.languageLinks.find(
+        l => l.lang === lang
+      );
+      this.$router.push({
+        name: `${langLink.lang}wiki`,
+        params: { title: langLink.titles.canonical }
       });
     }
+  },
+  mounted: function() {
+    // eslint-disable-next-line
+      $(this.$el).uls({
+      left: 0,
+      top: "100%",
+      languages: this.languages,
+      onSelect: this.languageSelected.bind(this)
+    });
   }
 };
 </script>
