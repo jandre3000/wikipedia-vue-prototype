@@ -1,6 +1,11 @@
 <template>
   <a id="vn-logo" v-bind:href="$router.options.base">
-    <img v-bind:src="localizedLogoSrc" />
+    <img class="logo-globe" src="../assets/wikipedia-globe.png" />
+    <span
+      class="localized-wordmark"
+      v-bind:src="localizedLogoSrc"
+      v-bind:style="{ backgroundImage: 'url(' + localizedLogoSrc + ')' }"
+    ></span>
   </a>
 </template>
 
@@ -11,11 +16,19 @@
   left: 24px;
   display: block;
 }
-#vn-logo img {
-  height: 100%;
-  width: 100%;
-  max-height: 30px;
-  max-width: 100px;
+#vn-logo .localized-wordmark {
+  display: inline-block;
+  height: 36px;
+  width: 120px;
+  background-size: 120px auto;
+  background-position: 0 -98px;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+
+#vn-logo .logo-globe {
+  max-height: 40px;
+  max-width: 40px;
 }
 </style>
 
@@ -24,7 +37,7 @@ export default {
   asyncComputed: {
     localizedLogoSrc: function() {
       return new Promise(resolve => {
-        const localUrl = `https://en.m.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-${this.$route.meta.language}.svg`;
+        const localUrl = `https://en.wikipedia.org/static/images/project-logos/${this.$route.meta.language}wiki-2x.png`;
         const fallbackUrl = `https://en.m.wikipedia.org/static/images/mobile/copyright/wikipedia-wordmark-en.svg`;
         const img = new Image();
         img.src = localUrl;

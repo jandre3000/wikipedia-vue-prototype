@@ -40,6 +40,17 @@
   margin-left: 12px;
   margin-right: 0;
 }
+
+.row.uls-search {
+  background-image: url("../assets/settings.svg");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+}
+
+.uls-filtersuggestion {
+  background-color: transparent;
+}
 </style>
 <script>
 import "jquery.uls/src/jquery.uls.data";
@@ -113,6 +124,7 @@ export default {
       $(this.$el).uls({
       left: 0,
       top: "100%",
+      menuWidth: "medium",
       languages: this.languages,
       onSelect: this.languageSelected.bind(this)
     });

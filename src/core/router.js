@@ -40,6 +40,8 @@ const newRouterWithBase = function(base) {
   });
 
   router.beforeEach((to, from, next) => {
+    store.dispatch("user/setVectorMode", base);
+
     if (to.meta.fetchArticle) {
       store.dispatch("article/fetch", {
         title: to.params.title || "Main_Page",

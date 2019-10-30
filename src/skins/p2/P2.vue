@@ -10,7 +10,12 @@
 
     <template v-slot:sidebar>
       <div id="mw-panel" v-show="sidebarCollapsed">
-        <mw-portals></mw-portals>
+        <mw-portal-navigation />
+        <mw-portal-interaction />
+        <mw-portal-tools />
+        <mw-portal-other />
+        <mw-portal-print />
+        <mw-portal-languages />
       </div>
     </template>
   </vector-layout>

@@ -12,7 +12,7 @@ button {
   vertical-align: middle;
   position: absolute;
   left: 20px;
-  top: 6px;
+  top: 15px;
 }
 </style>
 

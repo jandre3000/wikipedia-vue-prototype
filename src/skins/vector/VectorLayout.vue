@@ -40,7 +40,12 @@
       <slot name="sidebar">
         <div id="mw-panel">
           <mw-logo></mw-logo>
-          <mw-portals></mw-portals>
+          <mw-portal-navigation />
+          <mw-portal-interaction />
+          <mw-portal-tools />
+          <mw-portal-other />
+          <mw-portal-print />
+          <mw-portal-languages />
         </div>
       </slot>
     </div>
@@ -63,10 +68,6 @@ body {
   top: 0;
   width: 100%;
   z-index: 0;
-}
-
-#mw-head {
-  z-index: 1;
 }
 
 /* DANGER: this is using a body class to move the layout for the collapsed sidebar.
@@ -94,9 +95,13 @@ body.vn-sidebar-collapsed {
     margin-left: 0;
   }
   .vn-page-navigation-margin {
-    max-width: 960px; // random because 1em padding on body
+    max-width: 1008px; // random because 1em padding on body
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .vectorTabs {
+    background-image: none;
   }
 }
 </style>
