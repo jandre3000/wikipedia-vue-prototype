@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "@/core/store";
-import Article from "@/core/views/Article.vue";
+import MwArticle from "@/core/views/MwArticle.vue";
 import wikicodes from "@/core/wiki/wikipedia-codes.json";
 
 Vue.use(VueRouter);
@@ -11,7 +11,7 @@ const routes = [];
 for (let i = 0; i < wikicodes.length; i++) {
   routes.push({
     path: `/${wikicodes[i]}/wiki/:title?`,
-    component: Article,
+    component: MwArticle,
     meta: {
       language: wikicodes[i],
       fetchArticle: true

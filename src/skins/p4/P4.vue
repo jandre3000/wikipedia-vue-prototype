@@ -4,6 +4,18 @@
       <sticky-header-one></sticky-header-one>
     </template>
 
+    <template v-slot:pageTitle>
+      <div
+        class="page-title-with-languages"
+        v-bind:class="{ 'no-header': isMainPage }"
+      >
+        <h1 id="firstHeading" class="firstHeading" v-if="!isMainPage">
+          {{ title }}
+        </h1>
+        <jquery-uls v-if="languages.length > 0"></jquery-uls>
+      </div>
+    </template>
+
     <template v-slot:sidebar>
       <div id="mw-panel" v-show="sidebarCollapsed">
         <mw-portals></mw-portals>
@@ -20,13 +32,39 @@
 #vn-logo {
   left: 54px;
 }
+
+.page-title-with-languages {
+  display: flex;
+  border-bottom: 1px solid;
+  align-items: center;
+}
+
+.page-title-with-languages.no-header {
+  border-bottom: 0;
+}
+
+.page-title-with-languages:hover {
+}
+
+.page-title-with-languages h1 {
+  border-bottom: 0;
+  flex-grow: 1;
+}
 </style>
 
 <script>
 import "../globalSkinComponents.js";
 
 export default {
+  data() {
+    return {
+      componentKey: 0
+    };
+  },
   computed: {
+    languages() {
+      return this.$store.state.article.languageLinks;
+    },
     isMainPage() {
       return this.$store.state.article.title === "Main Page";
     },
@@ -35,6 +73,11 @@ export default {
     },
     sidebarCollapsed() {
       return !this.$store.state.user.sidebarCollapsed;
+    }
+  },
+  watch: {
+    languages() {
+      this.forceRerender();
     }
   },
   methods: {
@@ -47,6 +90,9 @@ export default {
         event.preventDefault();
         this.$router.push(`/${currentRouteLanguage}${href}`);
       }
+    },
+    forceRerender() {
+      this.componentKey += 1;
     }
   }
 };

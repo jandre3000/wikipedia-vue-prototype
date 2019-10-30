@@ -10,6 +10,7 @@ const state = {
   toc: [],
   image: {},
   languagecount: 0,
+  languageLinks: [],
   issues: [],
   revisions: [],
   history: {},
@@ -39,6 +40,9 @@ const mutations = {
   },
   setLanguagecount(state, languagecount) {
     state.languagecount = languagecount;
+  },
+  setLanguageLinks(state, languageLinks) {
+    state.languageLinks = languageLinks;
   },
   setWikidataId(state, id) {
     state.wikidataId = id;
@@ -87,7 +91,6 @@ const actions = {
         commit("setDescription", articleData.description);
         commit("setImage", articleData.image);
         commit("setIssues", articleData.issues);
-        commit("setLanguagecount", articleData.languagecount);
         commit("setWikidataId", articleData.wikidataId);
         commit("setHistory", articleData.history);
         commit("setSections", articleData.sections);
@@ -107,6 +110,7 @@ const actions = {
       .fetchMetadata(articleRequest.language, articleRequest.title)
       .then(metadata => {
         commit("setMetadata", metadata);
+        commit("setLanguageLinks", metadata.language_links || []);
       });
   },
   media({ commit }, articleRequest) {

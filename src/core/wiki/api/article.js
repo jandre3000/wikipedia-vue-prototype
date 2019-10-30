@@ -16,6 +16,8 @@ function fetchMedia(language, title) {
 }
 
 function fetchArticle(language, title, api) {
+  const apiUrl = `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`;
+
   if (!language) {
     throw new Error("Language is null");
   }
@@ -27,8 +29,7 @@ function fetchArticle(language, title, api) {
   if (api === "action") {
     return fetchArticleActionAPI(language, title);
   } else {
-    const api = `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`;
-    return axios.get(api).then(response => process(response.data));
+    return axios.get(apiUrl).then(response => process(response.data));
   }
 }
 

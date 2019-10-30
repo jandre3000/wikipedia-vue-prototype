@@ -12,14 +12,11 @@
         <div id="centralNotice"></div>
         <!-- CentralNotice -->
       </div>
-      <h1
-        id="firstHeading"
-        class="firstHeading"
-        lang="page-langcode"
-        v-if="!isMainPage"
-      >
-        {{ title }}
-      </h1>
+      <slot name="pageTitle">
+        <h1 id="firstHeading" class="firstHeading" v-if="!isMainPage">
+          {{ title }}
+        </h1>
+      </slot>
       <div id="bodyContent" class="mw-body-content">
         <mw-core>Content goes here!!</mw-core>
       </div>
@@ -116,7 +113,6 @@ export default {
       return this.$store.state.article.title;
     },
     sidebarCollapsed() {
-      console.log(this.$store.state.user.sidebarCollapsed);
       return this.$store.state.user.sidebarCollapsed;
     }
   },
