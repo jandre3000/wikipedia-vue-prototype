@@ -12,6 +12,7 @@ const state = {
   languagecount: 0,
   languageLinks: [],
   issues: [],
+  indicators: {},
   revisions: [],
   history: {},
   metadata: {},
@@ -37,6 +38,9 @@ const mutations = {
   },
   setIssues(state, issues) {
     state.issues = issues;
+  },
+  setIndicators(state, indicators) {
+    state.indicators = indicators;
   },
   setLanguagecount(state, languagecount) {
     state.languagecount = languagecount;
@@ -91,6 +95,7 @@ const actions = {
         commit("setDescription", articleData.description);
         commit("setImage", articleData.image);
         commit("setIssues", articleData.issues);
+        commit("setIndicators", articleData.indicators);
         commit("setWikidataId", articleData.wikidataId);
         commit("setHistory", articleData.history);
         commit("setSections", articleData.sections);

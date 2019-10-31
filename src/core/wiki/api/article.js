@@ -41,7 +41,7 @@ function fetchArticleActionAPI(language, title) {
         action: "parse",
         format: "json",
         page: title,
-        prop: "text|headhtml",
+        prop: "indicators|text|headhtml",
         utf8: 1,
         formatversion: "latest",
         redirects: "true",
@@ -58,6 +58,7 @@ function fetchArticleActionAPI(language, title) {
             }
           ]
         },
+        indicators: response.data.parse.indicators,
         remaining: { sections: [] }
       };
       return process(data);
@@ -103,6 +104,7 @@ function process(articleData) {
     image: articleData.lead.image,
     issues: articleData.lead.issues,
     geo: articleData.lead.geo,
+    indicators: articleData.indicators,
     pronunciation: articleData.lead.pronunciation,
     languagecount: articleData.lead.languagecount,
     wikidataId: articleData.lead.wikibase_item,

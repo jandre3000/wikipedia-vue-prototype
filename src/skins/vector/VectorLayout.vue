@@ -18,6 +18,16 @@
         </h1>
       </slot>
       <div id="bodyContent" class="mw-body-content">
+        <slot name="indicators">
+          <div class="mw-indicators mw-body-content">
+            <div
+              :class="'mw-indicator mw-indicator-' + name"
+              v-html="value"
+              v-bind:key="value"
+              v-for="(value, name) in indicators"
+            ></div>
+          </div>
+        </slot>
         <mw-core>Content goes here!!</mw-core>
       </div>
     </div>
@@ -70,6 +80,13 @@ body {
   z-index: 0;
 }
 
+#coordinates {
+  display: none;
+}
+
+.mw-body .mw-indicator {
+  margin-left: 0.5em;
+}
 /* DANGER: this is using a body class to move the layout for the collapsed sidebar.
  * Is there a better way to do this?
  */
@@ -116,6 +133,9 @@ export default {
     },
     title() {
       return this.$store.state.article.title;
+    },
+    indicators() {
+      return this.$store.state.article.indicators;
     },
     sidebarCollapsed() {
       return this.$store.state.user.sidebarCollapsed;

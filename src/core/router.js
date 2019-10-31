@@ -49,6 +49,10 @@ const newRouterWithBase = function(base) {
         api: "action"
       });
     }
+
+    if (to.hash === "#loggedin") {
+      store.dispatch("user/setLoggedIn", true);
+    }
     next();
   });
 
