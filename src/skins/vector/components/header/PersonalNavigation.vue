@@ -5,7 +5,9 @@
       <li id="pt-anonuserpage" v-if="!$store.state.user.loggedIn">
         Not logged in
       </li>
-      <li id="pt-anonuserpage" v-else><a>Notadog</a></li>
+      <li id="pt-anonuserpage" v-else>
+        <a href="/wiki/On_the_Internet,_nobody_knows_you%27re_a_dog">Notadog</a>
+      </li>
 
       <li id="pt-notifications-alert" v-if="$store.state.user.loggedIn">
         <a
