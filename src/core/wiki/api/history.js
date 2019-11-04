@@ -14,7 +14,7 @@ function fetchHistory(language, title) {
 
   const api = `//${language}.wikipedia.org/w/api.php`;
   return axios.get(api, { params }).then(response => {
-    return response.data.query.pages.length
+    return response.data.query && response.data.query.pages.length
       ? response.data.query.pages[0].revisions
       : [];
   });

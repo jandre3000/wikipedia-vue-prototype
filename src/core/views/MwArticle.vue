@@ -5,7 +5,7 @@
       :key="`section-${section.id}`"
       :id="section.anchor"
     >
-      <a :href="`#${section.anchor}`">
+      <a v-if="section.anchor" :href="`#${section.anchor}`">
         <h2 v-if="section.toclevel === 1" v-html="section.heading"></h2>
         <h3 v-else v-html="section.heading"></h3>
       </a>

@@ -3,6 +3,13 @@
     <vn-menu-icon></vn-menu-icon>
     <p1-logo id="vn-logo"></p1-logo>
     <personal-navigation></personal-navigation>
+
+    <div class="vn-page-navigation">
+      <div class="vn-page-navigation-margin">
+        <right-navigation></right-navigation>
+        <left-navigation></left-navigation>
+      </div>
+    </div>
   </div>
 </template>
 

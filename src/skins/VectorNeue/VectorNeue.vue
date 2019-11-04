@@ -1,0 +1,109 @@
+<template>
+  <vector-layout>
+    <template v-slot:pageTitle>
+      <div
+        class="page-title-with-languages"
+        v-bind:class="{ 'no-header': isMainPage }"
+      >
+        <h1 id="firstHeading" class="firstHeading" v-show="!isMainPage">
+          {{ title }}
+        </h1>
+        <jquery-uls v-if="languages.length > 0" :key="ulsKey"></jquery-uls>
+      </div>
+    </template>
+
+    <template v-slot:header>
+      <sticky-header-one></sticky-header-one>
+    </template>
+
+    <template v-slot:right-left-navigation>
+      <div class="vn-page-navigation">
+        <div class="vn-page-navigation-margin">
+          <right-navigation></right-navigation>
+          <left-navigation></left-navigation>
+        </div>
+      </div>
+    </template>
+
+    <template v-slot:sidebar>
+      <div id="mw-panel" v-show="sidebarCollapsed">
+        <mw-portal-navigation class="first-portal" />
+        <mw-portal-interaction />
+        <mw-portal-tools />
+        <mw-portal-other />
+        <mw-portal-print />
+      </div>
+    </template>
+  </vector-layout>
+</template>
+
+<style scoped lang="less">
+#mw-panel {
+  margin-top: 80px;
+}
+
+// modifying <p1-logo>
+#vn-logo {
+  left: 54px;
+}
+
+.vn-page-navigation {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+.page-title-with-languages {
+  display: flex;
+  border-bottom: 1px solid #a2a9b1;
+  align-items: center;
+  margin-bottom: 0.25em;
+}
+
+.page-title-with-languages.no-header {
+  border-bottom: 0;
+}
+
+.page-title-with-languages h1 {
+  border-bottom: 0;
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+</style>
+
+<script>
+import "../globalSkinComponents.js";
+
+export default {
+  data() {
+    return {
+      ulsKey: 0
+    };
+  },
+  computed: {
+    isMainPage() {
+      return this.$store.state.article.title === "Main Page";
+    },
+    title() {
+      return this.$store.state.article.title;
+    },
+    languages() {
+      return this.$store.state.article.languageLinks;
+    },
+    sidebarCollapsed() {
+      return !this.$store.state.user.sidebarCollapsed;
+    }
+  },
+  watch: {
+    languages() {
+      this.forceRerender();
+    }
+  },
+  methods: {
+    forceRerender() {
+      this.ulsKey += 1;
+    }
+  }
+};
+</script>

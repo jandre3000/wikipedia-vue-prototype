@@ -19,7 +19,8 @@ const state = {
   media: {},
   geo: {},
   pronunciation: {},
-  loadingStatus: "loading"
+  loadingStatus: "loading",
+  tagline: ""
 };
 
 // The only way to actually change state in a Vuex store is by committing a mutation.
@@ -74,6 +75,10 @@ const mutations = {
   },
   setPronunciation(state, pronunciation) {
     state.pronunciation = pronunciation;
+  },
+  setTagline(state, tagline) {
+    console.log(tagline);
+    state.tagline = tagline;
   }
 };
 
@@ -106,9 +111,17 @@ const actions = {
       .catch(() => {
         commit("setLoadingStatus", "failure");
       });
+
+    dispatch("tagline", articleRequest);
     dispatch("metadata", articleRequest);
     dispatch("media", articleRequest);
     dispatch("history", articleRequest);
+  },
+
+  tagline({ commit }, articleRequest) {
+    articleApi.fetchTagline(articleRequest.language).then(tagline => {
+      commit("setTagline", tagline);
+    });
   },
   metadata({ commit }, articleRequest) {
     articleApi
