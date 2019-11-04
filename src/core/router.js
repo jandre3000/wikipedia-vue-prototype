@@ -43,16 +43,24 @@ const newRouterWithBase = function(base) {
     store.dispatch("user/setVectorMode", base);
 
     if (to.meta.fetchArticle) {
-      store.dispatch("article/fetch", {
-        title: to.params.title || "Main_Page",
-        language: to.meta.language,
-        api: "action"
-      });
+      store
+        .dispatch("article/fetch", {
+          title: to.params.title || "Main_Page",
+          language: to.meta.language,
+          api: "action"
+        })
+        .then(() => {
+          store.dispatch("site/updateSite", {
+            lang: to.meta.language,
+            title: to.params.title
+          });
+        });
     }
 
     if (to.hash === "#loggedin") {
       store.dispatch("user/setLoggedIn", true);
     }
+
     next();
   });
 

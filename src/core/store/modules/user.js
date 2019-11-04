@@ -13,7 +13,7 @@ const mutations = {
     state.sidebarCollapsed = !status;
   },
   setVectorMode(state, baseRoute) {
-    state.classicMode = baseRoute === "/vector/" || baseRoute === "/p1/";
+    state.classicMode = baseRoute === "/vector/" || baseRoute === "/phase1/";
   }
 };
 

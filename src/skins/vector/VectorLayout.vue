@@ -1,9 +1,5 @@
 <template>
-  <body
-    @click="onClickContent"
-    v-bind:class="{ 'vn-sidebar-collapsed': sidebarCollapsed }"
-    class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject rootpage-Main_Page skin-vector action-view webfonts-changed"
-  >
+  <body @click="onClickContent" v-bind:class="bodyClasses">
     <div id="mw-page-base" class="noprint"></div>
 
     <div id="content" class="mw-body" role="main">
@@ -13,7 +9,7 @@
         <!-- CentralNotice -->
       </div>
       <slot name="pageTitle">
-        <h1 id="firstHeading" class="firstHeading" v-show="!isMainPage">
+        <h1 id="firstHeading" class="firstHeading">
           {{ title }}
         </h1>
       </slot>
@@ -88,8 +84,21 @@ import "../globalSkinComponents.js";
 
 export default {
   computed: {
-    isMainPage() {
-      return this.$store.state.article.title === "Main Page";
+    bodyClasses() {
+      let title = this.$store.state.site.titleParam;
+      return [
+        "mediawiki",
+        "ltr",
+        "sitedir-ltr",
+        "mw-hide-empty-elt",
+        "ns-0",
+        "ns-subject",
+        `page-${title}`,
+        `rootpage-${title}`,
+        "skin-vector",
+        "action-view",
+        this.$store.state.user.sidebarCollapsed ? "vn-sidebar-collapsed" : ""
+      ];
     },
     title() {
       return this.$store.state.article.title;
@@ -101,11 +110,16 @@ export default {
       return this.$store.state.user.sidebarCollapsed;
     }
   },
+  watch: {
+    "$route.params.title": function() {
+      return this.bodyClasses;
+    }
+  },
   methods: {
     onClickContent(event) {
       const nodeName = event.target.nodeName,
         href = event.target.getAttribute("href"),
-        currentRouteLanguage = this.$router.currentRoute.meta.language;
+        currentRouteLanguage = this.$store.state.site.language;
       if (nodeName == "A" && /\/wiki\//.test(href)) {
         event.stopPropagation();
         event.preventDefault();

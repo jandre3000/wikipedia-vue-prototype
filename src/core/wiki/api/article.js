@@ -65,25 +65,6 @@ function fetchArticleActionAPI(language, title) {
     });
 }
 
-function fetchTagline(language) {
-  const baseUrl = `https://${language}.wikipedia.org/w/api.php`;
-  return axios
-    .get(baseUrl, {
-      params: {
-        action: "parse",
-        format: "json",
-        page: "MediaWiki:Tagline",
-        prop: "wikitext",
-        utf8: 1,
-        formatversion: "latest",
-        redirects: "true",
-        origin: "*"
-      }
-    })
-    .then(response => {
-      return response.data.parse.wikitext;
-    });
-}
 function process(articleData) {
   const sections = [];
   const toc = [];
@@ -141,6 +122,5 @@ export default {
   fetchArticle,
   fetchMetadata,
   fetchMedia,
-  fetchTagline,
   fetchArticleActionAPI
 };

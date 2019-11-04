@@ -1,11 +1,8 @@
 <template>
   <vector-layout>
     <template v-slot:pageTitle>
-      <div
-        class="page-title-with-languages"
-        v-bind:class="{ 'no-header': isMainPage }"
-      >
-        <h1 id="firstHeading" class="firstHeading" v-show="!isMainPage">
+      <div class="page-title-with-languages">
+        <h1 id="firstHeading" class="firstHeading">
           {{ title }}
         </h1>
         <jquery-uls v-if="languages.length > 0" :key="ulsKey"></jquery-uls>
@@ -69,6 +66,20 @@
   border-bottom: 0;
   flex-grow: 1;
   margin-bottom: 0;
+}
+</style>
+
+<style>
+body.page-Main_Page .page-title-with-languages {
+  display: none;
+}
+
+h3#p-navigation-label {
+  display: none;
+}
+
+#mw-panel .first-portal .body {
+  background-image: none;
 }
 </style>
 
