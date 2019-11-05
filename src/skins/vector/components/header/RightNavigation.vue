@@ -88,7 +88,7 @@
           <input
             type="search"
             name="search"
-            placeholder="Search Wikipedia"
+            :placeholder="$store.state.site.i18n['search']"
             title="Search Wikipedia [ctrl-option-f]"
             accesskey="f"
             id="searchInput"

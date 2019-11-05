@@ -122,7 +122,8 @@ const actions = {
         msg`vector-view-history`,
         msg`vector-more-actions`,
         msg`vector-action-move`,
-
+        // search
+        msg`search`,
         // sidebar
         msg`mainpage-description`,
         msg`currentevents`,
