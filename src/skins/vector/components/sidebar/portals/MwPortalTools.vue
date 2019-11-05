@@ -8,7 +8,7 @@
             href="/wiki/Special:WhatLinksHere/Main_Page"
             title="List of all English Wikipedia pages containing links to this page [ctrl-option-j]"
             accesskey="j"
-            >What links here</a
+            >{{ $store.state.site.i18n["whatlinkshere"] }}</a
           >
         </li>
         <li id="t-recentchangeslinked">
@@ -17,7 +17,7 @@
             rel="nofollow"
             title="Recent changes in pages linked from this page [ctrl-option-k]"
             accesskey="k"
-            >Related changes</a
+            >{{ $store.state.site.i18n["recentchangeslinked-toolbox"] }}</a
           >
         </li>
         <li id="t-upload">
@@ -25,7 +25,7 @@
             href="/wiki/Wikipedia:File_Upload_Wizard"
             title="Upload files [ctrl-option-u]"
             accesskey="u"
-            >Upload file</a
+            >{{ $store.state.site.i18n["upload"] }}</a
           >
         </li>
         <li id="t-specialpages">
@@ -33,21 +33,21 @@
             href="/wiki/Special:SpecialPages"
             title="A list of all special pages [ctrl-option-q]"
             accesskey="q"
-            >Special pages</a
+            >{{ $store.state.site.i18n["specialpages"] }}</a
           >
         </li>
         <li id="t-permalink">
           <a
             href="https://en.wikipedia.org/w/index.php?title=Main_Page&amp;oldid=889268954"
             title="Permanent link to this revision of the page"
-            >Permanent link</a
+            >{{ $store.state.site.i18n["permalink"] }}</a
           >
         </li>
         <li id="t-info">
           <a
             href="https://en.wikipedia.org/w/index.php?title=Main_Page&amp;action=info"
             title="More information about this page"
-            >Page information</a
+            >{{ $store.state.site.i18n["pageinfo-toolboxlink"] }}</a
           >
         </li>
         <li id="t-wikibase">

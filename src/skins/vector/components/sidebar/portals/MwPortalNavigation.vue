@@ -13,7 +13,7 @@
             href="/wiki/Main_Page"
             title="Visit the main page [ctrl-option-z]"
             accesskey="z"
-            >Main page</a
+            >{{ $store.state.site.i18n["mainpage-description"] }}</a
           >
         </li>
         <li id="n-contents">
@@ -32,7 +32,7 @@
           <a
             href="/wiki/Portal:Current_events"
             title="Find background information on current events"
-            >Current events</a
+            >{{ $store.state.site.i18n["currentevents"] }}</a
           >
         </li>
         <li id="n-randompage">
@@ -40,14 +40,14 @@
             href="/wiki/Special:Random"
             title="Load a random article [ctrl-option-x]"
             accesskey="x"
-            >Random article</a
+            >{{ $store.state.site.i18n["randompage"] }}</a
           >
         </li>
         <li id="n-sitesupport">
           <a
             href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en"
             title="Support us"
-            >Donate to Wikipedia</a
+            >{{ $store.state.site.i18n["sitesupport"] }}</a
           >
         </li>
         <li id="n-shoplink">

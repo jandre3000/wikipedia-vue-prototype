@@ -123,7 +123,27 @@ const actions = {
         msg`vector-more-actions`,
         msg`vector-action-move`,
 
-        msg`mainpage`
+        // sidebar
+        msg`mainpage-description`,
+        msg`currentevents`,
+        msg`randompage`,
+        msg`sitesupport`,
+        msg`help`,
+        msg`aboutsite`,
+        msg`portal`,
+        msg`recentchanges`,
+        msg`contactpage`,
+        msg`toolbox`,
+        msg`whatlinkshere`,
+        msg`recentchangeslinked-toolbox`,
+        msg`upload`,
+        msg`specialpages`,
+        msg`permalink`,
+        msg`pageinfo-toolboxlink`,
+        msg`coll-print_export`,
+        msg`coll-create_a_book`,
+        msg`coll-download_as_pdf`,
+        msg`coll-printable_version_pdf`
       ].join("|"),
       utf8: 1,
       formatversion: "latest",

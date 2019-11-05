@@ -12,19 +12,19 @@
           <a
             href="/wiki/Help:Contents"
             title="Guidance on how to use and edit Wikipedia"
-            >Help</a
+            >{{ $store.state.site.i18n["help"] }}</a
           >
         </li>
         <li id="n-aboutsite">
-          <a href="/wiki/Wikipedia:About" title="Find out about Wikipedia"
-            >About Wikipedia</a
-          >
+          <a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">{{
+            $store.state.site.i18n["aboutsite"]
+          }}</a>
         </li>
         <li id="n-portal">
           <a
             href="/wiki/Wikipedia:Community_portal"
             title="About the project, what you can do, where to find things"
-            >Community portal</a
+            >{{ $store.state.site.i18n["portal"] }}</a
           >
         </li>
         <li id="n-recentchanges">
@@ -32,12 +32,14 @@
             href="/wiki/Special:RecentChanges"
             title="A list of recent changes in the wiki [ctrl-option-r]"
             accesskey="r"
-            >Recent changes</a
+            >{{ $store.state.site.i18n["recentchanges"] }}</a
           >
         </li>
         <li id="n-contactpage">
-          <a href="/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"
-            >Contact page</a
+          <a
+            href="/wiki/Wikipedia:Contact_us"
+            title="How to contact Wikipedia"
+            >{{ $store.state.site.i18n["contactpage"] }}</a
           >
         </li>
       </ul>
