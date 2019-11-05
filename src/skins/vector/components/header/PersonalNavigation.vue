@@ -3,7 +3,7 @@
     <h3 id="p-personal-label">Personal tools</h3>
     <ul>
       <li id="pt-anonuserpage" v-if="!$store.state.user.loggedIn">
-        Not logged in
+        {{ $store.state.site.i18n["notloggedin"] }}
       </li>
       <li id="pt-anonuserpage" v-else>
         <a href="/wiki/On_the_Internet,_nobody_knows_you%27re_a_dog">Notadog</a>
@@ -38,8 +38,9 @@
           href="https://en.wikipedia.org/wiki/Special:MyTalk"
           title="Discussion about edits from this IP address [ctrl-option-n]"
           accesskey="n"
-          >Talk</a
         >
+          {{ $store.state.site.i18n["talk"] }}
+        </a>
       </li>
 
       <li id="pt-sandbox" v-if="$store.state.user.loggedIn">
@@ -48,13 +49,13 @@
           class="new"
           title="Your sandbox (page does not exist)"
         >
-          Sandbox
+          {{ $store.state.site.i18n["sandboxlink-portlet-label"] }}
         </a>
       </li>
 
       <li id="pt-preferences" v-if="$store.state.user.loggedIn">
         <a href="/wiki/Special:Preferences" title="Your preferences">
-          Preferences
+          {{ $store.state.site.i18n["preferences"] }}
         </a>
       </li>
 
@@ -63,7 +64,7 @@
           href="/wiki/Special:Preferences#mw-prefsection-betafeatures"
           title="Beta features"
         >
-          Beta
+          {{ $store.state.site.i18n["betafeatures-toplink"] }}
         </a>
       </li>
 
@@ -73,7 +74,7 @@
           title="The list of pages you are monitoring for changes [ctrl-option-L]"
           accesskey="L"
         >
-          Watchlist
+          {{ $store.state.site.i18n["watchlist"] }}
         </a>
       </li>
 
@@ -82,15 +83,17 @@
           href="https://en.wikipedia.org/wiki/Special:MyContributions"
           title="A list of edits made from this IP address [ctrl-option-y]"
           accesskey="y"
-          >Contributions</a
         >
+          {{ $store.state.site.i18n["user-contributions"] }}
+        </a>
       </li>
       <li id="pt-createaccount" v-if="!$store.state.user.loggedIn">
         <a
           href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Main+Page"
           title="You are encouraged to create an account and log in; however, it is not mandatory"
-          >Create account</a
         >
+          {{ $store.state.site.i18n["createaccount"] }}
+        </a>
       </li>
       <li id="pt-login" v-if="!$store.state.user.loggedIn">
         <a
@@ -98,16 +101,18 @@
           href="#loggedin"
           title="You&#39;re encouraged to log in; however, it&#39;s not mandatory. [ctrl-option-o]"
           accesskey="o"
-          >Log in</a
         >
+          {{ $store.state.site.i18n["login"] }}
+        </a>
       </li>
       <li v-else>
         <a
           v-on:click="$store.dispatch('user/setLoggedIn', false)"
           href="#"
           accesskey="o"
-          >Log out</a
         >
+          {{ $store.state.site.i18n["logout"] }}
+        </a>
       </li>
     </ul>
   </div>

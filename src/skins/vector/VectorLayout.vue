@@ -61,10 +61,8 @@
 </template>
 
 <style lang="less">
-@import "./assets/css_1.css";
-@import "./assets/css_2.css";
-@import "./assets/css_3.css";
-@import "./assets/css_4.css";
+@import "./assets/css-ltr.less";
+@import "./assets/css-rtl.less";
 
 body {
   height: auto;
@@ -74,8 +72,12 @@ body {
   display: none;
 }
 
-.mw-body .mw-indicator {
+html[dir="ltr"] .mw-body .mw-indicator {
   margin-left: 0.5em;
+}
+
+html[dir="rtl"] .mw-body .mw-indicator {
+  margin-right: 0.5em;
 }
 </style>
 
@@ -88,8 +90,8 @@ export default {
       let title = this.$store.state.site.titleParam;
       return [
         "mediawiki",
-        "ltr",
-        "sitedir-ltr",
+        this.$store.state.site.langDir,
+        `sitedir-${this.$store.state.site.langDir}`,
         "mw-hide-empty-elt",
         "ns-0",
         "ns-subject",
@@ -108,11 +110,9 @@ export default {
     },
     sidebarCollapsed() {
       return this.$store.state.user.sidebarCollapsed;
-    }
-  },
-  watch: {
-    "$route.params.title": function() {
-      return this.bodyClasses;
+    },
+    langDir() {
+      return this.$store.state.site.langDir;
     }
   },
   methods: {

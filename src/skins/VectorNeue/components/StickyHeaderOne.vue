@@ -24,4 +24,9 @@
 #vn-logo {
   left: 55px;
 }
+
+html[dir="rtl"] #vn-logo {
+  left: auto;
+  right: 55px;
+}
 </style>

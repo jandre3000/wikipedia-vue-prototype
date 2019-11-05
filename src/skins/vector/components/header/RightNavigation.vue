@@ -10,7 +10,9 @@
       <ul>
         <li id="ca-view" class="collapsible selected">
           <span>
-            <a href="/wiki/Main_Page">Read</a>
+            <a href="/wiki/Main_Page">{{
+              $store.state.site.i18n["vector-view-view"]
+            }}</a>
           </span>
         </li>
         <li id="ca-viewsource" class="collapsible">
@@ -19,7 +21,7 @@
               href="/w/index.php?title=Main_Page&amp;action=edit"
               title="This page is protected. You can view its source [ctrl-option-e]"
               accesskey="e"
-              >View source
+              >{{ $store.state.site.i18n["vector-view-viewsource"] }}
             </a>
           </span>
         </li>
@@ -29,7 +31,7 @@
               href="/w/index.php?title=Main_Page&amp;action=history"
               title="Past revisions of this page [ctrl-option-h]"
               accesskey="h"
-              >View history
+              >{{ $store.state.site.i18n["vector-view-history"] }}
             </a>
           </span>
         </li>
@@ -63,7 +65,7 @@
         aria-labelledby="p-cactions-label"
       />
       <h3 id="p-cactions-label">
-        <span>More</span>
+        <span>{{ $store.state.site.i18n["vector-more-actions"] }}</span>
       </h3>
       <ul class="menu">
         <li id="ca-move">
@@ -72,7 +74,7 @@
             title="Rename this page [ctrl-option-m]"
             accesskey="m"
           >
-            Move
+            {{ $store.state.site.i18n["vector-action-move"] }}
           </a>
         </li>
       </ul>

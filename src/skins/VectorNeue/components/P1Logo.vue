@@ -30,6 +30,16 @@
   max-height: 40px;
   max-width: 40px;
 }
+
+html[dir="rtl"] {
+  #vn-logo {
+    position: absolute;
+    top: 6px;
+    left: auto;
+    right: 24px;
+    display: block;
+  }
+}
 </style>
 
 <script>

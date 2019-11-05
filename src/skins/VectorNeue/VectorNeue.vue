@@ -40,10 +40,12 @@
 }
 
 // modifying <p1-logo>
-#vn-logo {
-  left: 54px;
+html[dir="ltr"] #vn-logo {
+  left: 55px;
 }
-
+html[dir="rtl"] #vn-logo {
+  right: 55px;
+}
 .vn-page-navigation {
   position: absolute;
   top: 0;

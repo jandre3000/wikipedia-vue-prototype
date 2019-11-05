@@ -23,8 +23,12 @@
   margin-top: 80px;
 }
 // modifying <p1-logo>
-#vn-logo {
-  left: 54px;
+// modifying <p1-logo>
+html[dir="ltr"] #vn-logo {
+  left: 55px;
+}
+html[dir="rtl"] #vn-logo {
+  right: 55px;
 }
 </style>
 

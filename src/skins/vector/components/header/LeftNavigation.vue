@@ -14,8 +14,9 @@
               href="/wiki/Main_Page"
               title="View the content page [ctrl-option-c]"
               accesskey="c"
-              >Main Page</a
             >
+              {{ $store.state.site.i18n["nstab-main"] }}
+            </a>
           </span>
         </li>
         <li id="ca-talk">
@@ -25,8 +26,9 @@
               rel="discussion"
               title="Discussion about the content page [ctrl-option-t]"
               accesskey="t"
-              >Talk</a
             >
+              {{ $store.state.site.i18n["talk"] }}
+            </a>
           </span>
         </li>
       </ul>
