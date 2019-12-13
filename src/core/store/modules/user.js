@@ -1,6 +1,6 @@
 const state = {
-  sidebarCollapsed: true,
-  loggedIn: false,
+  sidebarCollapsed: false,
+  loggedIn: true,
   classicMode: false
 };
 
