@@ -100,6 +100,11 @@ html[dir="rtl"] .mw-body .mw-indicator {
 import "../globalSkinComponents.js";
 
 export default {
+  data() {
+    return {
+      siteStyleElement: false
+    };
+  },
   computed: {
     bodyClasses() {
       let title = this.$store.state.site.titleParam;
@@ -126,6 +131,9 @@ export default {
     sidebarCollapsed() {
       return this.$store.state.user.sidebarCollapsed;
     },
+    language() {
+      return this.$store.state.site.language;
+    },
     langDir() {
       return this.$store.state.site.langDir;
     }
@@ -139,6 +147,28 @@ export default {
         event.stopPropagation();
         event.preventDefault();
         this.$router.push(`/${currentRouteLanguage}${href}`);
+      }
+    }
+  },
+  watch: {
+    language(oldLang, newLang) {
+      const currentLang = newLang || oldLang;
+      if (!this.siteStyleElement) {
+        const head = document.head,
+          linkEl = document.createElement("link");
+
+        linkEl.type = "text/css";
+        linkEl.rel = "stylesheet";
+        linkEl.href = `https://${currentLang}.wikipedia.org/w/load.php?lang=en&modules=site.styles&only=styles&skin=vector`;
+        head.appendChild(linkEl);
+
+        this.siteStyleElement = linkEl;
+      }
+      if (currentLang !== oldLang) {
+        this.siteStyleElement.setAttribute(
+          "href",
+          `https://${this.language}.wikipedia.org/w/load.php?lang=en&modules=site.styles&only=styles&skin=vector`
+        );
       }
     }
   }

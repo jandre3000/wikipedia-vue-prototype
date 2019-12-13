@@ -1,12 +1,12 @@
 <template>
-  <a id="vn-logo" v-bind:href="$router.options.base">
+  <router-link id="vn-logo" :to="{ params: { title: 'Main_Page' } }">
     <img class="logo-globe" src="../static/images/wikipedia-globe.png" />
     <span
       class="localized-wordmark"
       v-bind:src="localizedLogoSrc"
       v-bind:style="{ backgroundImage: 'url(' + localizedLogoSrc + ')' }"
     ></span>
-  </a>
+  </router-link>
 </template>
 
 <style lang="less">
