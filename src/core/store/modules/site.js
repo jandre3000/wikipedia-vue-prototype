@@ -115,7 +115,8 @@ const actions = {
         msg`logout`,
         // left navigation
         msg`nstab-main`,
-        msg`talk`,
+        // language selector
+        msg`uls-plang-title-languages`,
         //right navigation
         msg`vector-view-view`, //read
         msg`vector-view-viewsource`,

@@ -3,8 +3,10 @@
     <div id="uls-button">
       <mw-button>
         <span class="language-icon"></span>
-        {{ Object.keys(this.languages).length }}
-        languages
+        <span>
+          {{ Object.keys(this.languages).length }}
+          {{ $store.state.site.i18n["uls-plang-title-languages"] }}
+        </span>
         <span class="down-icon"></span>
       </mw-button>
     </div>

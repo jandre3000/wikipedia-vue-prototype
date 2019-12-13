@@ -5,10 +5,12 @@
 </template>
 
 <style lang="less" scoped>
-.mw-ui-button {
+html[dir="ltr"] .mw-ui-button,
+html[dir="rtl"] .mw-ui-button {
   font-size: 0.85em !important;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 6px 10px;
 }
 </style>
