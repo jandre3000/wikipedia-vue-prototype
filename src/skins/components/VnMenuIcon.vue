@@ -5,14 +5,14 @@
 <style scoped>
 button {
   display: inline-block;
-  background: center / contain no-repeat url("../assets/hamburger.svg");
+  background: center / contain no-repeat url("../static/images/hamburger.svg");
   width: 20px;
   height: 20px;
   border: 0;
   vertical-align: middle;
   position: absolute;
   left: 20px;
-  top: 15px;
+  top: 20px;
   cursor: pointer;
 }
 

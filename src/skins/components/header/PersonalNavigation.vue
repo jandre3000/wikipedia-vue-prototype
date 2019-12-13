@@ -98,17 +98,15 @@
       <li id="pt-login" v-if="!$store.state.user.loggedIn">
         <a
           v-on:click="$store.dispatch('user/setLoggedIn', true)"
-          href="#loggedin"
           title="You&#39;re encouraged to log in; however, it&#39;s not mandatory. [ctrl-option-o]"
           accesskey="o"
         >
           {{ $store.state.site.i18n["login"] }}
         </a>
       </li>
-      <li v-else>
+      <li id="pt-logout" v-else>
         <a
           v-on:click="$store.dispatch('user/setLoggedIn', false)"
-          href="#"
           accesskey="o"
         >
           {{ $store.state.site.i18n["logout"] }}

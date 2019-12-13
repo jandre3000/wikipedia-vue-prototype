@@ -10,10 +10,12 @@ const mutations = {
   },
   setLoggedIn(state, status) {
     state.loggedIn = status;
-    state.sidebarCollapsed = !status;
+    if (!state.classicMode) {
+      state.sidebarCollapsed = !status;
+    }
   },
-  setVectorMode(state, baseRoute) {
-    state.classicMode = baseRoute === "/vector/" || baseRoute === "/phase1/";
+  setVectorMode(state, appName) {
+    state.classicMode = appName === "classic";
   }
 };
 
@@ -27,8 +29,8 @@ const actions = {
   setLoggedIn({ commit }, loggedInState) {
     commit("setLoggedIn", loggedInState);
   },
-  setVectorMode({ state, commit }, baseRoute) {
-    commit("setVectorMode", baseRoute);
+  setVectorMode({ state, commit }, appName) {
+    commit("setVectorMode", appName);
     commit("setSidebarCollapsed", state.sidebarCollapsed);
   }
 };

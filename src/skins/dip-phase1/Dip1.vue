@@ -1,5 +1,5 @@
 <template>
-  <vector-layout>
+  <vector-layout class="vector-neue">
     <template v-slot:pageTitle>
       <div class="page-title-with-languages">
         <h1 id="firstHeading" class="firstHeading">
@@ -34,54 +34,66 @@
   </vector-layout>
 </template>
 
-<style scoped lang="less">
-#mw-panel {
-  margin-top: 80px;
-}
+<style lang="less">
+html[dir="ltr"] .vector-neue,
+html[dir="rtl"] .vector-neue {
+  #vn-logo {
+    left: 55px;
+  }
 
-// modifying <p1-logo>
-html[dir="ltr"] #vn-logo {
-  left: 55px;
-}
-html[dir="rtl"] #vn-logo {
-  right: 55px;
-}
-.vn-page-navigation {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 0;
-}
+  #mw-panel {
+    margin-top: 80px;
+  }
 
-.page-title-with-languages {
-  display: flex;
-  border-bottom: 1px solid #a2a9b1;
-  align-items: center;
-  margin-bottom: 0.25em;
-}
+  #p-personal {
+    top: 14px;
+  }
 
-.page-title-with-languages.no-header {
-  border-bottom: 0;
-}
+  &.page-Main_Page .page-title-with-languages {
+    display: none;
+  }
 
-.page-title-with-languages h1 {
-  border-bottom: 0;
-  flex-grow: 1;
-  margin-bottom: 0;
-}
-</style>
+  .page-title-with-languages {
+    display: flex;
+    border-bottom: 1px solid #a2a9b1;
+    align-items: center;
+    margin-bottom: 0.25em;
+  }
 
-<style>
-body.page-Main_Page .page-title-with-languages {
-  display: none;
-}
+  .page-title-with-languages.no-header {
+    border-bottom: 0;
+  }
 
-h3#p-navigation-label {
-  display: none;
-}
+  .page-title-with-languages h1 {
+    border-bottom: 0;
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
 
-#mw-panel .first-portal .body {
-  background-image: none;
+  #mw-page-base {
+    height: 103px;
+  }
+
+  #left-navigation,
+  #right-navigation {
+    margin-top: 63px;
+  }
+
+  body.page-Main_Page .page-title-with-languages {
+    display: none;
+  }
+
+  #p-navigation-label {
+    display: none;
+  }
+
+  #p-navigation .body {
+    background-image: none !important;
+  }
+
+  #mw-panel .first-portal .body {
+    background-image: none;
+  }
 }
 </style>
 

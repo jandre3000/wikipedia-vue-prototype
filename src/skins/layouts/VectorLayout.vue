@@ -61,8 +61,8 @@
 </template>
 
 <style lang="less">
-@import "./assets/css-ltr.less";
-@import "./assets/css-rtl.less";
+@import "../static/styles/css-ltr.less";
+@import "../static/styles/css-rtl.less";
 
 body {
   height: auto;
@@ -78,6 +78,21 @@ html[dir="ltr"] .mw-body .mw-indicator {
 
 html[dir="rtl"] .mw-body .mw-indicator {
   margin-right: 0.5em;
+}
+
+// "disabling" cursor on non-functioning links
+#mw-panel,
+#mw-panel a,
+#right-navigation a,
+#left-navigation a,
+#p-personal a {
+  cursor: not-allowed;
+}
+
+#p-logo .mw-wiki-logo,
+#pt-login a,
+#pt-logout a {
+  cursor: pointer;
 }
 </style>
 

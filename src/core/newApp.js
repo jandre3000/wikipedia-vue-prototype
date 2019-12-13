@@ -6,7 +6,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
 import MwCore from "@/core/MwCore.vue";
-import newRouterWithBase from "@/core/router";
+import createRouter from "@/core/router";
 import store from "@/core/store";
 import AsyncComputed from "vue-async-computed";
 
@@ -24,13 +24,13 @@ requireComponent.keys().forEach(fileName => {
   Vue.component(componentName, componentConfig.default || componentConfig);
 });
 
-export default function({ baseRoute = "/", baseComponent = MwCore }) {
+export default function({ appName, baseComponent = MwCore }) {
   Vue.config.productionTip = false;
   Vue.use(VueRouter);
   Vue.use(AsyncComputed);
   Vue.use(Vuex);
 
-  const router = newRouterWithBase(baseRoute);
+  const router = createRouter(appName);
 
   return new Vue({
     router,

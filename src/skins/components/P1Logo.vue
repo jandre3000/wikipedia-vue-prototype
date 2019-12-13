@@ -1,6 +1,6 @@
 <template>
   <a id="vn-logo" v-bind:href="$router.options.base">
-    <img class="logo-globe" src="../assets/wikipedia-globe.png" />
+    <img class="logo-globe" src="../static/images/wikipedia-globe.png" />
     <span
       class="localized-wordmark"
       v-bind:src="localizedLogoSrc"
@@ -12,7 +12,7 @@
 <style lang="less">
 #vn-logo {
   position: absolute;
-  top: 6px;
+  top: 12px;
   left: 24px;
   display: block;
 }

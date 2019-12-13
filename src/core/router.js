@@ -32,15 +32,11 @@ routes.push({
   }
 });
 
-const newRouterWithBase = function(base) {
-  const router = new VueRouter({
-    mode: "history",
-    base: base,
-    routes
-  });
+const createRouter = function(appName) {
+  const router = new VueRouter({ routes });
 
   router.beforeEach((to, from, next) => {
-    store.dispatch("user/setVectorMode", base);
+    store.dispatch("user/setVectorMode", appName);
 
     if (to.meta.fetchArticle) {
       store
@@ -56,15 +52,10 @@ const newRouterWithBase = function(base) {
           });
         });
     }
-
-    if (to.hash === "#loggedin") {
-      store.dispatch("user/setLoggedIn", true);
-    }
-
     next();
   });
 
   return router;
 };
 
-export default newRouterWithBase;
+export default createRouter;

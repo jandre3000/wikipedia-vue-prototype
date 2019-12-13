@@ -3,12 +3,10 @@ const webpack = require("webpack");
 module.exports = {
   pages: {
     core: "src/core/main.js",
-    vector: "src/skins/vector/main.js",
-    phase1: "src/skins/phase1/main.js",
-    phase2: "src/skins/phase2/main.js",
-    phase3: "src/skins/phase3/main.js",
-    index: "src/skins/VectorNeue/main.js"
+    classic: "src/skins/vector-classic/main.js",
+    index: "src/skins/dip-phase1/main.js"
   },
+  publicPath: "./",
   configureWebpack: {
     plugins: [
       new webpack.ProvidePlugin({

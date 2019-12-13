@@ -13,13 +13,27 @@
 </template>
 
 <style>
+html[dir="ltr"] #uls ul {
+  list-style-image: none;
+}
+
 #uls {
   position: relative;
+}
+
+#uls-button {
+  position: relative;
+  top: -8px;
 }
 .uls-menu {
   left: auto !important;
   right: 0;
 }
+
+.uls-medium {
+  min-width: 480px;
+}
+
 .language-icon,
 .down-icon {
   display: inline-block;
@@ -27,14 +41,14 @@
   margin-right: 12px;
   width: 20px;
   height: 20px;
-  background-image: url("../assets/languages.svg");
+  background-image: url("../static/images/languages.svg");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 .down-icon {
-  background-image: url("../assets/down.svg");
+  background-image: url("../static/images/down.svg");
   width: 12px;
   height: 12px;
   margin-left: 12px;
@@ -42,7 +56,7 @@
 }
 
 .row.uls-search {
-  background-image: url("../assets/settings.svg");
+  background-image: url("../static/images/settings.svg");
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: 95% center;
@@ -124,7 +138,7 @@ export default {
       $(this.$el).uls({
       left: 0,
       top: "100%",
-      menuWidth: "medium",
+      menuWidth: "large",
       languages: this.languages,
       onSelect: this.languageSelected.bind(this)
     });
