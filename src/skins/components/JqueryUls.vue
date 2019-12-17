@@ -3,8 +3,8 @@
     <div id="uls-button">
       <mw-button>
         <span class="language-icon"></span>
-        <span>
-          {{ Object.keys(this.languages).length }}
+        <span class="language-label">
+          {{ languagesLength }}
           {{ $store.state.site.i18n["uls-plang-title-languages"] }}
         </span>
         <span class="down-icon"></span>
@@ -15,7 +15,8 @@
 </template>
 
 <style>
-html[dir="ltr"] #uls ul {
+html[dir="ltr"] #uls ul,
+html[dir="rtl"] #uls ul {
   list-style-image: none;
 }
 
@@ -32,6 +33,20 @@ html[dir="ltr"] #uls ul {
   right: 0;
 }
 
+html[dir="rtl"] .uls-menu {
+  left: 0 !important;
+  right: auto !important;
+}
+
+html[dir="rtl"] .grid .column,
+html[dir="rtl"] .grid .columns {
+  float: right;
+}
+
+html[dir="rtl"] .uls-language-block > ul > li {
+  text-align: right;
+}
+
 .uls-medium {
   min-width: 480px;
 }
@@ -40,7 +55,6 @@ html[dir="ltr"] #uls ul {
 .down-icon {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 12px;
   width: 20px;
   height: 20px;
   background-image: url("../static/images/languages.svg");
@@ -53,8 +67,11 @@ html[dir="ltr"] #uls ul {
   background-image: url("../static/images/down.svg");
   width: 12px;
   height: 12px;
-  margin-left: 12px;
-  margin-right: 0;
+}
+
+.language-label {
+  display: inline-block;
+  margin: 0 12px;
 }
 
 .row.uls-search {
@@ -96,7 +113,6 @@ $.fn.uls.Constructor.prototype.show = function() {
   if (!this.initialized) {
     // eslint-disable-next-line
 	$( '#uls' ).prepend( this.$menu );
-    this.i18n();
     this.initialized = true;
   }
 
@@ -113,7 +129,7 @@ $.fn.uls.Constructor.prototype.show = function() {
 
 export default {
   computed: {
-    languages: function() {
+    languages() {
       return this.$store.state.article.languageLinks.reduce(
         (langs, langLink) => {
           // eslint-disable-next-line
@@ -122,6 +138,21 @@ export default {
         },
         {}
       );
+    },
+    languagesLength() {
+      const languageLength = Object.keys(this.languages).length || 0;
+      try {
+        console.log(this.$store.state.site.language);
+        console.log(
+          languageLength.toLocaleString(this.$store.state.site.language)
+        );
+        return languageLength.toLocaleString(this.$store.state.site.language);
+      } catch {
+        return languageLength;
+      }
+    },
+    i18n() {
+      return this.$store.state.site.i18n;
     }
   },
   methods: {
@@ -133,16 +164,24 @@ export default {
         name: `${langLink.lang}wiki`,
         params: { title: langLink.titles.canonical }
       });
+    },
+    translateUI() {
+      this.$el.querySelectorAll("[data-i18n]").forEach(i18nEl => {
+        const i18nTextContent =
+          this.i18n[i18nEl.dataset.i18n] || i18nEl.textContent;
+        i18nEl.textContent = i18nTextContent;
+      });
     }
   },
-  mounted: function() {
+  mounted() {
     // eslint-disable-next-line
       $(this.$el).uls({
       left: 0,
       top: "100%",
       menuWidth: "large",
       languages: this.languages,
-      onSelect: this.languageSelected.bind(this)
+      onSelect: this.languageSelected.bind(this),
+      onVisible: this.translateUI
     });
   }
 };

@@ -37,6 +37,9 @@ const getters = {};
 const actions = {
   updateSite({ state, dispatch }, { lang, title }) {
     if (state.language !== lang) {
+      if (lang === "zh") {
+        lang = "zh-hans";
+      }
       dispatch("updateI18n", lang);
       dispatch("updateLanguage", lang);
       dispatch("updateLogoUrl", lang);
@@ -85,6 +88,9 @@ const actions = {
   },
   updateI18n({ commit }, lang) {
     function msg(string) {
+      if (/Uls-/.test(string[0])) {
+        return "Wikimedia:" + string[0] + "/" + lang;
+      }
       return (
         "MediaWiki:" +
         string[0][0].toUpperCase() +
@@ -145,7 +151,16 @@ const actions = {
         msg`coll-print_export`,
         msg`coll-create_a_book`,
         msg`coll-download_as_pdf`,
-        msg`coll-printable_version_pdf`
+        msg`coll-printable_version_pdf`,
+        // ULS
+        msg`Uls-uls-search-help`,
+        msg`Uls-uls-region-WW`,
+        msg`Uls-uls-region-EU`,
+        msg`Uls-uls-region-ME`,
+        msg`Uls-uls-region-AF`,
+        msg`Uls-uls-region-AS`,
+        msg`Uls-uls-region-PA`,
+        msg`Uls-uls-region-all`
       ].join("|"),
       utf8: 1,
       formatversion: "latest",
@@ -157,8 +172,9 @@ const actions = {
       const msgObj = pages.reduce((messageObj, page) => {
         var title = page.title
           .replace("MediaWiki:", "")
+          .replace("Wikimedia:Uls-", "")
           .replace(`/${lang}`, "")
-          .toLowerCase();
+          .replace(/^\w/, c => c.toLowerCase());
 
         if (!page.missing) {
           messageObj[title] = page.revisions[0].content;
