@@ -99,12 +99,28 @@ const actions = {
         commit("setWikidataId", articleData.wikidataId);
         commit("setHistory", articleData.history);
         commit("setSections", articleData.sections);
-        commit("setTOC", articleData.toc);
+        // commit("setTOC", articleData.toc);
         commit("setGeo", articleData.geo);
         commit("setPronunciation", articleData.pronunciation);
       })
       .catch(() => {
         commit("setLoadingStatus", "failure");
+      });
+    articleApi
+      .fetchTOC(articleRequest.language, articleRequest.title)
+      .then(tocData => {
+        /*const toc = [];
+        tocData.forEach(element => {
+          if (element.toclevel === 1) {
+            toc.push({
+              title: element.line,
+              link: element.anchor
+            });
+          }
+        });
+        debugger;
+        */
+        commit("setTOC", tocData);
       });
     dispatch("metadata", articleRequest);
     dispatch("media", articleRequest);

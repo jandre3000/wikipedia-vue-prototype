@@ -13,16 +13,6 @@
             >Wikimedia Commons</a
           >
         </li>
-        <li class="wb-otherproject-link wb-otherproject-mediawiki">
-          <a href="https://www.mediawiki.org/wiki/MediaWiki" hreflang="en"
-            >MediaWiki</a
-          >
-        </li>
-        <li class="wb-otherproject-link wb-otherproject-meta">
-          <a href="https://meta.wikimedia.org/wiki/Main_Page" hreflang="en"
-            >Meta-Wiki</a
-          >
-        </li>
         <li class="wb-otherproject-link wb-otherproject-species">
           <a href="https://species.wikimedia.org/wiki/Main_Page" hreflang="en"
             >Wikispecies</a
@@ -38,11 +28,6 @@
             href="https://www.wikidata.org/wiki/Wikidata:Main_Page"
             hreflang="en"
             >Wikidata</a
-          >
-        </li>
-        <li class="wb-otherproject-link wb-otherproject-wikimania">
-          <a href="https://wikimania.wikimedia.org/wiki/Wikimania" hreflang="en"
-            >Wikimania</a
           >
         </li>
         <li class="wb-otherproject-link wb-otherproject-wikinews">

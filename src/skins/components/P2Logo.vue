@@ -10,35 +10,19 @@
 </template>
 
 <style lang="less" scoped>
-#vn-logo {
-  position: absolute;
-  top: 12px;
-  left: 24px;
-  display: block;
-}
 #vn-logo .localized-wordmark {
   display: inline-block;
-  height: 36px;
-  width: 120px;
-  background-size: 120px auto;
-  background-position: 0 -98px;
+  height: 24px;
+  width: 150px;
+  background-size: 140px auto;
+  background-position: 0 -117px;
   background-repeat: no-repeat;
   vertical-align: middle;
 }
 
 #vn-logo .logo-globe {
-  max-height: 40px;
+  max-height: 30px;
   max-width: 40px;
-}
-
-html[dir="rtl"] {
-  #vn-logo {
-    position: absolute;
-    top: 6px;
-    left: auto;
-    right: 24px;
-    display: block;
-  }
 }
 </style>
 

@@ -15,6 +15,13 @@ function fetchMedia(language, title) {
   return axios.get(api).then(response => response.data);
 }
 
+function fetchTOC(language, title) {
+  const api = `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections-lead/${title}`;
+  return axios.get(api).then(response => {
+    return response.data.sections;
+  });
+}
+
 function fetchArticle(language, title, api) {
   const apiUrl = `https://${language}.wikipedia.org/api/rest_v1/page/mobile-sections/${title}`;
 
@@ -122,5 +129,6 @@ export default {
   fetchArticle,
   fetchMetadata,
   fetchMedia,
-  fetchArticleActionAPI
+  fetchArticleActionAPI,
+  fetchTOC
 };

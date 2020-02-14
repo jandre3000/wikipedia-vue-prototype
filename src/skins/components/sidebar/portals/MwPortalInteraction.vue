@@ -15,11 +15,6 @@
             >{{ $store.state.site.i18n["help"] }}</a
           >
         </li>
-        <li id="n-aboutsite">
-          <a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">{{
-            $store.state.site.i18n["aboutsite"]
-          }}</a>
-        </li>
         <li id="n-portal">
           <a
             href="/wiki/Wikipedia:Community_portal"

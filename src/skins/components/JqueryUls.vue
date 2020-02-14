@@ -26,7 +26,7 @@ html[dir="rtl"] #uls ul {
 
 #uls-button {
   position: relative;
-  top: -8px;
+  /*top: -8px;*/
 }
 .uls-menu {
   left: auto !important;
@@ -72,6 +72,7 @@ html[dir="rtl"] .uls-language-block > ul > li {
 .language-label {
   display: inline-block;
   margin: 0 12px;
+  white-space: nowrap;
 }
 
 .row.uls-search {

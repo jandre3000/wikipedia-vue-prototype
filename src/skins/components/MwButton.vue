@@ -1,5 +1,5 @@
 <template>
-  <button class="mw-ui-button">
+  <button class="mw-ui-button mw-ui-quiet">
     <slot></slot>
   </button>
 </template>
