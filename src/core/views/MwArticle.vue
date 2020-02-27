@@ -18,6 +18,11 @@
 
 <script>
 export default {
+  watch: {
+    "$store.state.article.sections": function() {
+      window.scrollTo(0, 0);
+    }
+  },
   methods: {
     onClickContent(event) {
       const nodeName = event.target.nodeName,

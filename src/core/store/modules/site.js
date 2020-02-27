@@ -63,7 +63,7 @@ const actions = {
           action: "parse",
           format: "json",
           page: "MediaWiki:Tagline",
-          prop: "wikitext",
+          prop: "text",
           utf8: 1,
           formatversion: "latest",
           redirects: "true",
@@ -71,7 +71,15 @@ const actions = {
         }
       })
       .then(response => {
-        commit("setTagline", response.data.parse.wikitext);
+        const parser = new DOMParser();
+        const html = parser.parseFromString(
+          response.data.parse.text,
+          "text/html"
+        );
+        const tagline = html
+          .querySelector(".mw-parser-output")
+          .innerText.trim();
+        commit("setTagline", tagline);
       });
   },
   updateLogoUrl({ commit }, lang) {
@@ -152,6 +160,8 @@ const actions = {
         msg`coll-create_a_book`,
         msg`coll-download_as_pdf`,
         msg`coll-printable_version_pdf`,
+        // TOC
+        msg`toc`,
         // ULS
         msg`Uls-uls-search-help`,
         msg`Uls-uls-region-WW`,
