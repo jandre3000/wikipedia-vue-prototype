@@ -3059,6 +3059,14 @@ html[dir='rtl'] #mw-panel .portal {
   font-size: 0.75em;
 }
 
+#p-navigation-label {
+  display: none;
+}
+
+#mw-panel .portal.first-portal .body {
+  background-image: none;
+}
+
 html[dir='rtl'] #mw-panel .portal h3 {
   margin: 0.5em 0.66666667em 0 0;
 }
@@ -3225,13 +3233,13 @@ html[dir='rtl'] .mw-parser-output .external {
     margin-left: 11em;
   }
 html[dir='rtl'] .mw-body,
-  
+
 html[dir='rtl'] #mw-head-base,
-  
+
 html[dir='rtl'] #left-navigation,
-  
+
 html[dir='rtl'] #mw-data-after-content,
-  
+
 html[dir='rtl'] #footer {
     margin-left: unset;
     margin-right: 11em;
@@ -5634,7 +5642,7 @@ html[dir='rtl'] .ext-qs-loader-bar {
     float: right;
   }
 html[dir='rtl'] .ext-qs-loader-bar,
-  
+
 html[dir='rtl'] .ext-quick-survey-panel {
     margin-left: unset;
     margin-right: 1.4em;

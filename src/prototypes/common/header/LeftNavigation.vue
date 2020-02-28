@@ -1,5 +1,5 @@
 <template>
-  <div id="left-navigation" class="poop">
+  <div id="left-navigation">
     <div
       id="p-namespaces"
       role="navigation"

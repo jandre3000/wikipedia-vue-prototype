@@ -45,32 +45,52 @@
 
         <div class="vn-page-navigation">
           <div class="vn-page-navigation-margin">
-            <right-navigation class="vector-neue"></right-navigation>
-            <left-navigation class="vector-neue"></left-navigation>
+            <right-navigation></right-navigation>
+            <left-navigation></left-navigation>
           </div>
         </div>
       </div>
+    </div>
 
-      <div id="mw-panel" v-show="sidebarCollapsed">
-        <mw-portal-navigation class="first-portal" />
-        <mw-portal-interaction />
-        <mw-portal-tools />
-        <mw-portal-other />
-        <mw-portal-print />
-      </div>
+    <div ref="sidebar" id="mw-panel" :class="{ collapsed: sidebarCollapsed }">
+      <mw-portal-navigation class="first-portal" />
+      <mw-portal-interaction />
+      <mw-portal-tools />
+      <mw-portal-other />
+      <mw-portal-print />
     </div>
 
     <mw-footer></mw-footer>
   </body>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
+body {
+  background-color: white;
+}
+
 #vn-logo {
   left: 55px;
 }
 
+/** Sidebar */
 #mw-panel {
-  margin-top: 80px;
+  top: 103px;
+  position: absolute;
+  overflow: auto;
+  height: 100vh;
+  transition: transform 150ms ease-out;
+  background: linear-gradient(0deg, #f6f6f6 90%, #ffffff 100%);
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.15);
+}
+
+#mw-panel.collapsed {
+  transform: translateX(-100%);
+}
+
+#mw-panel.headroom--not-top {
+  position: fixed;
+  top: 0;
 }
 
 #mw-head {
@@ -130,18 +150,94 @@ body.page-Main_Page .page-title-with-languages {
   background-image: none !important;
 }
 
-#mw-panel .first-portal .body {
+#mw-page-base {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mw-body {
+  margin-left: auto;
+  margin-right: auto;
+  // DANGER: what width should we use, what do specialPages like recent changes
+  // look like with it?
+  max-width: 960px; //random
+  border-left: none;
+  border-right: none;
+}
+
+#left-navigation {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.vn-page-navigation-margin {
+  max-width: 1008px; // random because 1em padding on body
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/deep/ #right-navigation,
+/deep/ #left-navigation {
+  margin-top: 63px;
+}
+
+/deep/ #p-namespaces {
   background-image: none;
+}
+
+/deep/ #p-personal {
+  margin-left: 230px;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-left: 0;
+  }
+}
+#simpleSearch {
+  width: 100px;
+}
+@media screen and (max-width: 1360px) {
+  #mw-panel {
+    transition: none;
+  }
+
+  .vn-sidebar-collapsed .mw-body {
+    margin-left: 180px;
+  }
+}
+
+/* These are ridiculous */
+@media screen and (max-width: 982px) {
+  #mw-panel {
+    padding-left: 0.5em;
+    z-index: 1;
+  }
+}
+
+@media screen and (min-width: 982px) {
+  .mw-body {
+    padding: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .vn-sidebar-collapsed .mw-body {
+    margin-left: 0;
+  }
 }
 </style>
 
 <script>
 import "../globalSkinComponents.js";
+import Headroom from "headroom.js";
 
 export default {
   data() {
     return {
-      ulsKey: 0
+      ulsKey: 0,
+      indicators: ""
     };
   },
   computed: {
@@ -178,6 +274,12 @@ export default {
     languages() {
       this.forceRerender();
     }
+  },
+  mounted: function() {
+    const headroom = new Headroom(this.$refs.sidebar, {
+      offset: 103
+    });
+    headroom.init();
   },
   methods: {
     forceRerender() {

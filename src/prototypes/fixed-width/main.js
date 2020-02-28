@@ -7,7 +7,7 @@ import AsyncComputed from "vue-async-computed";
 Vue.use(AsyncComputed);
 Vue.config.productionTip = false;
 
-const router = createRouter();
+const router = createRouter("p3");
 
 new Vue({
   router,

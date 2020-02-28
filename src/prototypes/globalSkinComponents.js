@@ -8,7 +8,7 @@ import MwCore from "@/core/MwCore.vue";
 
 Vue.component("MwCore", MwCore.default || MwCore);
 
-const requireComponent = require.context(".", true, /.vue$/);
+const requireComponent = require.context("./common", true, /.vue$/);
 
 requireComponent.keys().forEach(fileName => {
   const componentConfig = requireComponent(fileName);
