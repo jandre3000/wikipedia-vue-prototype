@@ -1,12 +1,11 @@
 <template>
-  <button class="mw-ui-button mw-ui-quiet">
+  <button class="mw-ui-button">
     <slot></slot>
   </button>
 </template>
 
-<style lang="less" scoped>
-html[dir="ltr"] .mw-ui-button,
-html[dir="rtl"] .mw-ui-button {
+<style scoped>
+.mw-ui-button {
   font-size: 0.85em !important;
   display: flex;
   align-items: center;

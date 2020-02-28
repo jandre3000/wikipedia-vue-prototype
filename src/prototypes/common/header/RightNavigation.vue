@@ -1,5 +1,5 @@
 <template>
-  <div id="right-navigation">
+  <div id="right-navigation" class="">
     <div
       id="p-views"
       role="navigation"

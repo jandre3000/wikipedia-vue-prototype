@@ -1,7 +1,7 @@
 <template>
   <div id="uls">
     <div id="uls-button">
-      <mw-button>
+      <mw-button v-bind:class="{ 'mw-ui-quiet': subtle }">
         <span class="language-icon"></span>
         <span class="language-label">
           {{ languagesLength }}
@@ -15,8 +15,7 @@
 </template>
 
 <style>
-html[dir="ltr"] #uls ul,
-html[dir="rtl"] #uls ul {
+#uls ul {
   list-style-image: none;
 }
 
@@ -28,6 +27,7 @@ html[dir="rtl"] #uls ul {
   position: relative;
   /*top: -8px;*/
 }
+
 .uls-menu {
   left: auto !important;
   right: 0;
@@ -38,13 +38,12 @@ html[dir="rtl"] .uls-menu {
   right: auto !important;
 }
 
-html[dir="rtl"] .grid .column,
-html[dir="rtl"] .grid .columns {
-  float: right;
+.grid .columns {
+  float: left;
 }
 
-html[dir="rtl"] .uls-language-block > ul > li {
-  text-align: right;
+.uls-language-block > ul > li {
+  text-align: left;
 }
 
 .uls-medium {
@@ -129,6 +128,7 @@ $.fn.uls.Constructor.prototype.show = function() {
 };
 
 export default {
+  props: ["subtle"],
   computed: {
     languages() {
       return this.$store.state.article.languageLinks.reduce(

@@ -1,5 +1,5 @@
 import Vue from "vue";
-import VectorLayout from "../layouts/VectorLayout.vue";
+import VectorLayout from "./VectorLayout.vue";
 import createRouter from "@/core/router.js";
 import store from "@/core/store";
 
