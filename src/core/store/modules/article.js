@@ -123,16 +123,23 @@ const actions = {
         commit("setTOC", tocData);
       });
     dispatch("metadata", articleRequest);
+    dispatch("languageLinks", articleRequest);
     dispatch("media", articleRequest);
     dispatch("history", articleRequest);
     return articleNetworkRequest;
+  },
+  languageLinks({ commit }, articleRequest) {
+    articleApi
+      .fetchLangLinks(articleRequest.language, articleRequest.title)
+      .then(response => {
+        commit("setLanguageLinks", response);
+      });
   },
   metadata({ commit }, articleRequest) {
     articleApi
       .fetchMetadata(articleRequest.language, articleRequest.title)
       .then(metadata => {
         commit("setMetadata", metadata);
-        commit("setLanguageLinks", metadata.language_links || []);
       });
   },
   media({ commit }, articleRequest) {

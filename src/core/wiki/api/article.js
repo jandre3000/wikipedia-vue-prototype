@@ -10,6 +10,16 @@ function fetchMetadata(language, title) {
   return axios.get(api).then(response => response.data);
 }
 
+function fetchLangLinks(language, title) {
+  const api = `https://${language}.wikipedia.org/w/api.php?action=query&format=json&prop=langlinks&titles=${title}&redirects=1&converttitles=1&utf8=1&formatversion=latest&origin=*`;
+  return axios.get(api).then(response => {
+    if (response.data.query && response.data.query.pages.length) {
+      return response.data.query.pages[0].langlinks;
+    }
+    return [];
+  });
+}
+
 function fetchMedia(language, title) {
   const api = `https://${language}.wikipedia.org/api/rest_v1/page/media/${title}`;
   return axios.get(api).then(response => response.data);
@@ -130,5 +140,6 @@ export default {
   fetchMetadata,
   fetchMedia,
   fetchArticleActionAPI,
-  fetchTOC
+  fetchTOC,
+  fetchLangLinks
 };

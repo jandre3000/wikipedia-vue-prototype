@@ -2371,11 +2371,11 @@ html[dir='rtl'] #p-personal li {
 }
 #pt-anonuserpage,
 #pt-userpage a {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/user-avatar.png?59494);
+  background-image: url(../images/user-avatar.png?59494);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/user-avatar.svg?b7f58);
+    url(../images/user-avatar.svg?b7f58);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/user-avatar.svg?b7f58);
+    url(../images/user-avatar.svg?b7f58);
   background-position: left 0.33333333em;
   background-repeat: no-repeat;
   background-size: 1.16666667em 1.16666667em;
@@ -2386,9 +2386,9 @@ html[dir='rtl'] #p-personal li {
 html[dir='rtl'] #pt-anonuserpage,
 
 html[dir='rtl'] #pt-userpage a {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/user-avatar.png?59494);
+  background-image: url(../images/user-avatar.png?59494);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/user-avatar.svg?b7f58);
+    url(../images/user-avatar.svg?b7f58);
   background-position: right 0.33333333em;
   padding-left: unset !important;
   padding-right: 16px !important;
@@ -2532,19 +2532,19 @@ html[dir='rtl'] #mw-searchButton {
   direction: rtl;
 }
 #searchButton {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/search.png?39f97);
+  background-image: url(../images/search.png);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/search.svg?4d50a);
+    url(../images/search.svg);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/search.svg?4d50a);
+    url(../images/search.svg);
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 html[dir='rtl'] #searchButton {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/search.png?39f97);
+  background-image: url(../images/search.png);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/search.svg?4d50a);
+    url(../images/search.svg);
 }
 #mw-searchButton {
   z-index: 1;
@@ -2577,7 +2577,7 @@ html[dir='rtl'] .vectorTabs ul {
   float: right;
 }
 .vectorTabs li {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/tab-normal-fade.png?1cc52);
+  background-image: url(../images/tab-normal-fade.png?1cc52);
   background-image: linear-gradient(
     to top,
     #77c1f6 0,
@@ -2596,7 +2596,7 @@ html[dir='rtl'] .vectorTabs ul {
 }
 
 html[dir='rtl'] .vectorTabs li {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/tab-normal-fade.png?1cc52);
+  background-image: url(../images/tab-normal-fade.png?1cc52);
   background-position: right bottom;
   float: right;
 }
@@ -2625,7 +2625,7 @@ html[dir='rtl'] .vectorTabs li a {
   color: #a55858;
 }
 .vectorTabs .selected {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/tab-current-fade.png?22887);
+  background-image: url(../images/tab-current-fade.png?22887);
   background: #ffffff;
 }
 .vectorTabs .selected a,
@@ -2672,11 +2672,11 @@ html[dir='rtl'] .vectorMenu h3 {
 }
 .vectorMenu h3:after {
   content: "";
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/arrow-down.png?42edd);
+  background-image: url(../images/arrow-down.png);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/arrow-down.svg?2f021);
+    url(../images/arrow-down.svg);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/arrow-down.svg?2f021);
+    url(../images/arrow-down.svg);
   background-position: 100% 50%;
   background-repeat: no-repeat;
   position: absolute;
@@ -2688,9 +2688,9 @@ html[dir='rtl'] .vectorMenu h3 {
 }
 
 html[dir='rtl'] .vectorMenu h3:after {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/arrow-down.png?42edd);
+  background-image: url(../images/arrow-down.png?42edd);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/arrow-down.svg?2f021);
+    url(../images/arrow-down.svg?2f021);
   background-position: 0% 50%;
   right: unset;
   left: 8px;
@@ -2778,7 +2778,7 @@ html[dir='rtl'] #mw-head .vectorMenu h3 {
 .vectorTabs,
 .vectorTabs a,
 #mw-head .vectorMenu h3 {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/tab-separator.png?09d4b);
+  background-image: url(../images/tab-separator.png?09d4b);
   background-image: -webkit-gradient(
     linear,
     left top, left bottom,
@@ -2799,7 +2799,7 @@ html[dir='rtl'] .vectorTabs,
 html[dir='rtl'] .vectorTabs a,
 
 html[dir='rtl'] #mw-head .vectorMenu h3 {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/tab-separator.png?09d4b);
+  background-image: url(../images/tab-separator.png?09d4b);
   background-image: -webkit-gradient(
     linear,
     right top, right bottom,
@@ -2879,66 +2879,66 @@ html[dir='rtl'] .vectorTabs .mw-watchlink.icon a:before {
   right: 0.38461538em;
 }
 .vectorTabs #ca-unwatch.icon a:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon.png?fccbe);
+  background-image: url(../images/unwatch-icon.png);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon.svg?725e9);
+    url(../images/unwatch-icon.svg?725e9);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon.svg?725e9);
+    url(../images/unwatch-icon.svg?725e9);
 }
 
 html[dir='rtl'] .vectorTabs #ca-unwatch.icon a:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon.png?fccbe);
+  background-image: url(../images/unwatch-icon.png?fccbe);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon.svg?725e9);
+    url(../images/unwatch-icon.svg?725e9);
 }
 .vectorTabs #ca-watch.icon a:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon.png?e1b42);
+  background-image: url(../images/watch-icon.png);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon.svg?d3c31);
+    url(../images/watch-icon.svg);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon.svg?d3c31);
+    url(../images/watch-icon.svg);
 }
 
 html[dir='rtl'] .vectorTabs #ca-watch.icon a:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon.png?e1b42);
+  background-image: url(../images/watch-icon.png);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon.svg?d3c31);
+    url(../images/watch-icon.svg);
 }
 .vectorTabs #ca-unwatch.icon a:hover:before,
 .vectorTabs #ca-unwatch.icon a:focus:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon-hl.png?c4723);
+  background-image: url(../images/unwatch-icon-hl.png?c4723);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon-hl.svg?71c12);
+    url(../images/unwatch-icon-hl.svg?71c12);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon-hl.svg?71c12);
+    url(../images/unwatch-icon-hl.svg?71c12);
 }
 
 html[dir='rtl'] .vectorTabs #ca-unwatch.icon a:hover:before,
 
 html[dir='rtl'] .vectorTabs #ca-unwatch.icon a:focus:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon-hl.png?c4723);
+  background-image: url(../images/unwatch-icon-hl.png?c4723);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/unwatch-icon-hl.svg?71c12);
+    url(../images/unwatch-icon-hl.svg?71c12);
 }
 .vectorTabs #ca-watch.icon a:hover:before,
 .vectorTabs #ca-watch.icon a:focus:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon-hl.png?f4c7e);
+  background-image: url(../images/watch-icon-hl.png?f4c7e);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon-hl.svg?26a8a);
+    url(../images/watch-icon-hl.svg?26a8a);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon-hl.svg?26a8a);
+    url(../images/watch-icon-hl.svg?26a8a);
 }
 
 html[dir='rtl'] .vectorTabs #ca-watch.icon a:hover:before,
 
 html[dir='rtl'] .vectorTabs #ca-watch.icon a:focus:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon-hl.png?f4c7e);
+  background-image: url(../images/watch-icon-hl.png?f4c7e);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon-hl.svg?26a8a);
+    url(../images/watch-icon-hl.svg?26a8a);
 }
 .vectorTabs #ca-unwatch.icon .loading:before,
 .vectorTabs #ca-watch.icon .loading:before {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/watch-icon-loading.svg?34b1f);
+  background-image: url(../images/watch-icon-loading.svg?34b1f);
   -webkit-animation: rotate 700ms infinite linear;
   animation: rotate 700ms infinite linear;
   outline: 0;
@@ -3071,7 +3071,7 @@ html[dir='rtl'] #mw-panel .portal h3 {
   margin: 0.5em 0.66666667em 0 0;
 }
 #mw-panel .portal .body {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/portal-separator.png?4ab04);
+  background-image: url(../images/portal-separator.png);
   background-image: -webkit-gradient(
     linear,
     left top, right top,
@@ -3094,7 +3094,7 @@ html[dir='rtl'] #mw-panel .portal h3 {
 }
 
 html[dir='rtl'] #mw-panel .portal .body {
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/portal-separator.png?4ab04);
+  background-image: url(../images/portal-separator.png?4ab04);
   background-image: -webkit-gradient(
     linear,
     right top, left top,
@@ -3207,19 +3207,19 @@ html[dir='rtl'] #footer-places li {
 .mw-parser-output .external {
   background-position: center right;
   background-repeat: no-repeat;
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/external-link-ltr-icon.png?325de);
+  background-image: url(../images/external-link-ltr-icon.png?325de);
   background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/external-link-ltr-icon.svg?b4b84);
+    url(../images/external-link-ltr-icon.svg?b4b84);
   background-image: linear-gradient(transparent, transparent),
-    url(https://en.wikipedia.org/w/skins/Vector/images/external-link-ltr-icon.svg?b4b84);
+    url(../images/external-link-ltr-icon.svg?b4b84);
   padding-right: 13px;
 }
 
 html[dir='rtl'] .mw-parser-output .external {
   background-position: center left;
-  background-image: url(https://en.wikipedia.org/w/skins/Vector/images/external-link-ltr-icon.png?325de);
+  background-image: url(../images/external-link-ltr-icon.png?325de);
   background-image: -webkit-gradient(linear, right top, right bottom, from(transparent), to(transparent)),
-    url(https://en.wikipedia.org/w/skins/Vector/images/external-link-ltr-icon.svg?b4b84);
+    url(../images/external-link-ltr-icon.svg?b4b84);
   padding-right: unset;
   padding-left: 13px;
 }

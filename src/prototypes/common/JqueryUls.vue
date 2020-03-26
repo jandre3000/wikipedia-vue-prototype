@@ -1,5 +1,5 @@
 <template>
-  <div id="uls">
+  <div id="uls" v-bind:class="{ 'hide-search': hideSearch }">
     <div id="uls-button">
       <mw-button v-bind:class="{ 'mw-ui-quiet': subtle }">
         <span class="language-icon"></span>
@@ -40,6 +40,10 @@ html[dir="rtl"] .uls-menu {
 
 .grid .columns {
   float: left;
+}
+
+.hide-search .row.uls-search {
+  display: none;
 }
 
 .uls-language-block > ul > li {
@@ -128,7 +132,16 @@ $.fn.uls.Constructor.prototype.show = function() {
 };
 
 export default {
-  props: ["subtle"],
+  props: {
+    subtle: {
+      type: Boolean,
+      default: false
+    },
+    hideSearch: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     languages() {
       return this.$store.state.article.languageLinks.reduce(
@@ -163,7 +176,7 @@ export default {
       );
       this.$router.push({
         name: `${langLink.lang}wiki`,
-        params: { title: langLink.titles.canonical }
+        params: { title: langLink.title }
       });
     },
     translateUI() {

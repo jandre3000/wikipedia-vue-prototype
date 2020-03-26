@@ -13,7 +13,11 @@
         <h1 id="firstHeading" class="firstHeading">
           {{ title }}
         </h1>
-        <jquery-uls v-if="languages.length > 0" :key="ulsKey"></jquery-uls>
+        <jquery-uls
+          v-if="languages.length > 0"
+          :key="ulsKey"
+          v-bind:hideSearch="true"
+        ></jquery-uls>
       </div>
 
       <div id="bodyContent" class="mw-body-content">
@@ -44,10 +48,8 @@
         <personal-navigation></personal-navigation>
 
         <div class="vn-page-navigation">
-          <div class="vn-page-navigation-margin">
-            <right-navigation></right-navigation>
-            <left-navigation></left-navigation>
-          </div>
+          <right-navigation></right-navigation>
+          <left-navigation></left-navigation>
         </div>
       </div>
     </div>
@@ -63,6 +65,10 @@
     <mw-footer></mw-footer>
   </body>
 </template>
+
+<style lang="less" scoped>
+@import "../static/css/vector.css";
+</style>
 
 <style lang="less" scoped>
 body {
@@ -131,6 +137,7 @@ body {
 
 #mw-page-base {
   height: 103px;
+  box-shadow: inset 0 40px 25px 10px #fff;
 }
 
 #left-navigation.vector-neue,
@@ -159,11 +166,23 @@ body.page-Main_Page .page-title-with-languages {
 .mw-body {
   margin-left: auto;
   margin-right: auto;
-  // DANGER: what width should we use, what do specialPages like recent changes
-  // look like with it?
-  max-width: 960px; //random
-  border-left: none;
-  border-right: none;
+  max-width: 960px;
+  min-width: 500px;
+  padding: 1em 70px;
+  border: none;
+}
+
+.vn-page-navigation {
+  max-width: 960px;
+  min-width: 500px;
+  margin: 0 auto;
+  border-bottom: 1px solid #a7d7f9;
+}
+
+.vn-page-navigation:after {
+  display: block;
+  content: "";
+  clear: both;
 }
 
 #left-navigation {
@@ -171,15 +190,10 @@ body.page-Main_Page .page-title-with-languages {
   margin-right: 0;
 }
 
-.vn-page-navigation-margin {
-  max-width: 1008px; // random because 1em padding on body
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /deep/ #right-navigation,
 /deep/ #left-navigation {
   margin-top: 63px;
+  margin-bottom: -1px;
 }
 
 /deep/ #p-namespaces {
@@ -195,9 +209,15 @@ body.page-Main_Page .page-title-with-languages {
     padding-left: 0;
   }
 }
-#simpleSearch {
-  width: 100px;
+
+/deep/ #simpleSearch {
+  width: 13.2em;
 }
+
+.vn-sidebar-collapsed .mw-body {
+  padding: 1em 40px;
+}
+
 @media screen and (max-width: 1360px) {
   #mw-panel {
     transition: none;
@@ -206,9 +226,13 @@ body.page-Main_Page .page-title-with-languages {
   .vn-sidebar-collapsed .mw-body {
     margin-left: 180px;
   }
+
+  .vn-sidebar-collapsed .vn-page-navigation {
+    margin-left: 220px;
+  }
 }
 
-/* These are ridiculous */
+/* These are ridiculous breakpoints */
 @media screen and (max-width: 982px) {
   #mw-panel {
     padding-left: 0.5em;
@@ -216,22 +240,31 @@ body.page-Main_Page .page-title-with-languages {
   }
 }
 
+// overriding default styles
 @media screen and (min-width: 982px) {
   .mw-body {
-    padding: 1em;
+    padding: 1em 70px;
   }
 }
 
+@media screen and (min-width: 1440px) {
+  .mw-body,
+  .vn-page-navigation {
+    max-width: 66.7%;
+  }
+}
+/* Make the sidebar overlap conent on small screens
 @media screen and (max-width: 768px) {
   .vn-sidebar-collapsed .mw-body {
     margin-left: 0;
   }
 }
+*/
 </style>
 
 <script>
 import "../globalSkinComponents.js";
-import Headroom from "headroom.js";
+// import Headroom from "headroom.js";
 
 export default {
   data() {
@@ -276,10 +309,12 @@ export default {
     }
   },
   mounted: function() {
+    /* Makes sidebar fixed/sticky on scroll
     const headroom = new Headroom(this.$refs.sidebar, {
       offset: 103
     });
     headroom.init();
+    */
   },
   methods: {
     forceRerender() {

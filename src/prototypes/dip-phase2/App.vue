@@ -109,7 +109,7 @@
                   <div class="header-right">
                     <div class="languages-container">
                       <jquery-uls
-                        subtle="true"
+                        subtle
                         v-if="languages.length > 0"
                         :key="ulsKey"
                       ></jquery-uls>
@@ -130,6 +130,10 @@
     </div>
   </body>
 </template>
+
+<style lang="less" scoped>
+@import "../static/css/vector.css";
+</style>
 
 <style scoped>
 body {

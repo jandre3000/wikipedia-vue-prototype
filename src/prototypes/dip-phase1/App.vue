@@ -65,6 +65,10 @@
 </template>
 
 <style lang="less" scoped>
+@import "../static/css/vector.css";
+</style>
+
+<style lang="less" scoped>
 #vn-logo {
   left: 55px;
 }
@@ -203,6 +207,9 @@ export default {
     },
     sidebarCollapsed() {
       return !this.$store.state.user.sidebarCollapsed;
+    },
+    indicators() {
+      return this.$store.state.article.indicators || [];
     }
   },
   watch: {

@@ -60,6 +60,10 @@
   </body>
 </template>
 
+<style lang="less" scoped>
+@import "../static/css/vector.css";
+</style>
+
 <script>
 import "../globalSkinComponents.js";
 
