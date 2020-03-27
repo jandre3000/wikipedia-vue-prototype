@@ -11,7 +11,7 @@ function fetchMetadata(language, title) {
 }
 
 function fetchLangLinks(language, title) {
-  const api = `https://${language}.wikipedia.org/w/api.php?action=query&format=json&prop=langlinks&titles=${title}&redirects=1&converttitles=1&utf8=1&formatversion=latest&origin=*`;
+  const api = `https://${language}.wikipedia.org/w/api.php?action=query&format=json&prop=langlinks&titles=${title}&redirects=1&converttitles=1&utf8=1&lllimit=max&formatversion=latest&origin=*`;
   return axios.get(api).then(response => {
     if (response.data.query && response.data.query.pages.length) {
       return response.data.query.pages[0].langlinks;
