@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21" height="19" viewBox="0 0 21 19">
+	<title>
+		watchlist
+	</title>
+	<defs>
+		<polygon id="path-1" points="20 7 13 7 10 .5 7 7 0 7 5.46 12.47 3.82 19.47 10 15.77 16.18 19.5 14.55 12.5"/>
+	</defs>
+	<g id="Pieces" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+		<g id="Group" transform="translate(.759 -.5)">
+			<mask id="mask-2" fill="#fff">
+				<use xlink:href="#path-1"/>
+			</mask>
+			<use id="Mask" fill="#000" xlink:href="#path-1"/>
+			<g id="🎨-Color/Base10-#202122" fill="#202122" mask="url(#mask-2)">
+				<rect id="Color" width="20" height="20" x="0" y="0"/>
+			</g>
+		</g>
+	</g>
+</svg>

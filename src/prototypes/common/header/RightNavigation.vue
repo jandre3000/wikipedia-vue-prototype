@@ -79,7 +79,7 @@
         </li>
       </ul>
     </div>
-    <div id="p-search" role="search">
+    <div v-if="search" id="p-search" role="search">
       <h3>
         <label for="searchInput">Search</label>
       </h3>
@@ -115,3 +115,14 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    search: {
+      type: Boolean,
+      default: true
+    }
+  }
+};
+</script>

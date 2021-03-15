@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		sandbox
+	</title>
+	<g id="sandbox" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+		<path id="Shape" fill="#000" fill-rule="nonzero" d="M6.5,0.5 L0,7 L1.5,8.5 L6.5,13.5 L8,12 L3,7 L8,2 L6.5,0.5 Z M13.5,0.5 L12,2 L17,7 L12,12 L13.5,13.5 L20,7 L13.5,0.5 Z" transform="translate(0 3)"/>
+	</g>
+</svg>

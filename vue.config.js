@@ -6,7 +6,8 @@ module.exports = {
     classic: "src/prototypes/vector-classic/main.js",
     index: "src/prototypes/dip-phase1/main.js",
     p2: "src/prototypes/dip-phase2/main.js",
-    p3: "src/prototypes/fixed-width/main.js"
+    p3: "src/prototypes/fixed-width/main.js",
+    p4: "src/prototypes/dip-scrolling-header/main.js"
   },
   publicPath: "./",
   configureWebpack: {

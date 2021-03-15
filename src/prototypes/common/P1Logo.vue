@@ -18,17 +18,16 @@
 }
 #vn-logo .localized-wordmark {
   display: inline-block;
-  height: 36px;
-  width: 120px;
-  background-size: 120px auto;
-  background-position: 0 -98px;
+  height: 50px;
+  width: 130px;
+  background-size: 136px auto;
+  background-position: 0 -110px;
   background-repeat: no-repeat;
   vertical-align: middle;
 }
 
 #vn-logo .logo-globe {
-  max-height: 40px;
-  max-width: 40px;
+  max-height: 45px;
 }
 
 html[dir="rtl"] {

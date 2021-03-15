@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		history
+	</title>
+	<defs>
+		<path id="path-1" d="M10,1 C14.97056,1 19,5.02944 19,10 C19,14.970563 14.97056,19 10,19 L10,19 L10,17 C13.1036,17.000044 15.83668,14.956467 16.71436,11.979549 C17.59204,9.00263 16.40473,5.80322 13.7975,4.11955 C11.19028,2.43589 7.785697,2.67001 5.433482,4.69472 C3.081267,6.71942 2.343089,10.051247 3.62,12.88 L3.62,12.88 L6,10.5 L6,16 L0.5,16 L2.150001,14.350002 C0.6132296,11.566569 0.6591293,8.17882 2.270746,5.43805 C3.882363,2.69727 6.820524,1.01021 10,1 Z M11,6 L11,10.11 L12.95,12.06 L11.54,13.47 L9.06,11 L9,11 L9,6 L11,6 Z"/>
+	</defs>
+	<g id="history" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+		<g id="Group">
+			<mask id="mask-2" fill="#fff">
+				<use xlink:href="#path-1"/>
+			</mask>
+			<use id="Mask" fill="#000" xlink:href="#path-1"/>
+			<g id="🎨-Color/Base10-#202122" fill="#202122" mask="url(#mask-2)">
+				<rect id="Color" width="20" height="20" x="0" y="0"/>
+			</g>
+		</g>
+	</g>
+</svg>

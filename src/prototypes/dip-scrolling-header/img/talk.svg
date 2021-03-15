@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		talk
+	</title>
+	<defs>
+		<path id="path-1" d="M18,4 C19.10457,4 20,4.89543 20,6 L20,6 L20,20 L16,16 L6,16 C4.895431,16 4,15.104569 4,14 L4,14 L4,13 L15,13 C16.10457,13 17,12.104569 17,11 L17,11 L17,4 Z M14,0 C15.10457,0 16,0.89543 16,2 L16,2 L16,10 C16,11.104569 15.10457,12 14,12 L14,12 L4,12 L0,16 L0,2 C0,0.89543 0.8954301,0 2,0 L2,0 Z"/>
+	</defs>
+	<g id="Pieces" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+		<g id="Group">
+			<mask id="mask-2" fill="#fff">
+				<use xlink:href="#path-1"/>
+			</mask>
+			<use id="Mask" fill="#000" xlink:href="#path-1"/>
+			<g id="🎨-Color/Base10-#202122" fill="#202122" mask="url(#mask-2)">
+				<rect id="Color" width="20" height="20" x="0" y="0"/>
+			</g>
+		</g>
+	</g>
+</svg>

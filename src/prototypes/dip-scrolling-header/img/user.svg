@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		user
+	</title>
+	<g id="user" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+		<path id="Shape" fill="#000" fill-rule="nonzero" d="M10.5,11.5 C16.05,11.5 18,14.3125 18,16.1875 L18,19 L3,19 L3,16.1875 C3,14.3125 4.95,11.5 10.5,11.5 Z M10.5,10 C8.01471863,10 6,7.98528137 6,5.5 C6,3.01471863 8.01471863,1 10.5,1 C12.9852814,1 15,3.01471863 15,5.5 C15,7.98528137 12.9852814,10 10.5,10 Z"/>
+	</g>
+</svg>

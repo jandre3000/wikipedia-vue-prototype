@@ -35,6 +35,9 @@ export default {
         this.$router.push(`/${currentRouteLanguage}${href}`);
       }
     }
+  },
+  updated() {
+    this.$parent.$emit("content-updated");
   }
 };
 </script>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+	<title>
+		Artboard Copy
+	</title>
+	<g id="Artboard-Copy" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+		<g id="userContributions" fill="#000" fill-rule="nonzero" transform="translate(0 2)">
+			<circle id="Oval" cx="2" cy="2" r="2"/>
+			<circle id="Oval" cx="2" cy="8" r="2"/>
+			<circle id="Oval" cx="2" cy="14" r="2"/>
+			<circle id="Oval" cx="15.5" cy="8.5" r="2.5"/>
+			<path id="Shape" d="M6,13 L9,13 L9,15 L6,15 L6,13 Z M6,7 L11,7 L11,9 L6,9 L6,7 Z M6,1 L17,1 L17,3 L6,3 L6,1 Z M15.5,11.556 C12.17,11.556 11,13.222 11,14.333 L11,16 L20,16 L20,14.333 C20,13.223 18.83,11.556 15.5,11.556 L15.5,11.556 Z"/>
+		</g>
+	</g>
+</svg>
