@@ -1145,7 +1145,7 @@ export default {
       hiddenSidebar: true,
       searchQuery: "",
       userMenuOpen: false,
-      loggedIn: false,
+      loggedIn: true,
       showStickySearch: false,
       userMenuFloating: false,
       tocTitle: ""
