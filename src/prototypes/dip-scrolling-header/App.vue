@@ -1,308 +1,327 @@
 <template>
   <body @click="onClickContent" v-bind:class="bodyClasses">
-    <header
-      ref="header"
-      class="floating-header headroom headroom--not-bottom headroom--not-top headroom--pinned"
-    >
-      <div class="header">
+    <div class="outer-container">
+      <header
+        ref="header"
+        class="floating-header headroom headroom--not-bottom headroom--not-top headroom--pinned"
+      >
+        <div class="header">
+          <div class="header-left">
+            <a class="button logo-icon">
+              <img src="./img/w.svg" />
+            </a>
+            <a class="button button-icon logo-icon subheader">
+              <img src="./img/w.svg" />
+            </a>
+            <!-- Search -->
+            <a
+              v-on:click="showStickySearch = !showStickySearch"
+              class="button button-icon search-icon subheader"
+            >
+              <img src="./img/search.svg" />
+            </a>
+            <WvuiTypeaheadSearch
+              v-show="showStickySearch"
+              buttonLabel="search"
+              formAction="search"
+              footerSearchText="search in pages"
+              suggestionsLabel="suggestions label"
+              id="stickySearch"
+              class="subheader"
+              searchPlaceholder="Search Wikipedia"
+            />
+            <div class="search-container subheader"></div>
+            <!-- Article title -->
+            <div
+              v-show="!showStickySearch"
+              class="article-title-subheader subheader"
+            >
+              <p class="title">{{ this.title }}</p>
+              <p v-if="this.tocTitle" class="title-section">
+                {{ this.tocTitle }}
+                <!-- &nbsp;&nbsp;History -->
+              </p>
+            </div>
+          </div>
+          <div class="header-right" v-show="loggedIn">
+            <!-- Article tools -->
+            <div class="button-group subheader">
+              <a class="button button-icon">
+                <img src="./img/talk.svg" />
+                <p class="tooltip" data-stringname="discussionString">Talk</p>
+              </a>
+              <a class="button button-icon">
+                <img src="./img/history.svg" />
+                <p class="tooltip" data-stringname="historyString">History</p>
+              </a>
+              <a class="button button-icon">
+                <img src="./img/edit-source.svg" />
+                <p class="tooltip" data-stringname="editSourceString">
+                  Edit source
+                </p>
+              </a>
+              <a class="button button-icon">
+                <img src="./img/edit-icon.svg" />
+                <p class="tooltip" data-stringname="editString">Edit</p>
+              </a>
+            </div>
+            <!-- Language switcher & menu -->
+            <div class="languages-container subheader">
+              <a class="button" onclick="toggleLanguageMenuFloating()">
+                <img src="./img/languages-icon.svg"/><span
+                  data-stringname="languagebuttonString"
+                >
+                  {{ languages.length }} Languages</span
+                ><img src="./img/down.svg"
+              /></a>
+              <div class="language-menu" data-stringname="languageMenuString">
+                <!--<img src="./img/uls.png" />-->
+              </div>
+            </div>
+            <!-- User menu -->
+            <a
+              class="button user-icon subheader"
+              v-on:click="toggleUserMenuFloating"
+            >
+              <img src="./img/user.svg" />
+              <img src="./img/down.svg" />
+            </a>
+            <ul class="floating-menu user-menu" v-show="userMenuFloating">
+              <li class="compact-menu">
+                <img src="./img/bell.svg" />
+                <span data-stringname="alertsString">Alerts</span>
+              </li>
+              <li class="compact-menu">
+                <img src="./img/inbox.svg" />
+                <span data-stringname="noticesString">Notices</span>
+              </li>
+              <li>
+                <img src="./img/sandbox.svg" />
+                <span data-stringname="sandboxString">Sandbox</span>
+              </li>
+              <li>
+                <img src="./img/preferences.svg" />
+                <span data-stringname="preferencesString">Preferences</span>
+              </li>
+              <li>
+                <img src="./img/beta.svg" />
+                <span data-stringname="betaString">Beta</span>
+              </li>
+              <li>
+                <img src="./img/watchlist.svg" />
+                <span data-stringname="watchlistString">Watchlist</span>
+              </li>
+              <li>
+                <img src="./img/contribs.svg" />
+                <span data-stringname="contributionsString">Contributions</span>
+              </li>
+              <li>
+                <img src="./img/languages-icon.svg" />
+                <span data-stringname="contributionsString">Translations</span>
+              </li>
+              <li>
+                <img src="./img/commons.svg" />
+                <span data-stringname="contributionsString"
+                  >Uploaded media</span
+                >
+              </li>
+              <li>
+                <span data-stringname="gadgetString">Gadget</span>
+              </li>
+              <li>18:05:22</li>
+              <li>
+                <img src="./img/logout.svg" />
+                <span v-on:click="toggleLoggedIn">Log out</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <div class="header site-header">
         <div class="header-left">
-          <a class="button logo-icon">
-            <img src="./img/w.svg" />
-          </a>
-          <a class="button button-icon logo-icon subheader">
-            <img src="./img/w.svg" />
-          </a>
-          <!-- Search -->
-          <a
-            v-on:click="showStickySearch = !showStickySearch"
-            class="button button-icon search-icon subheader"
-          >
-            <img src="./img/search.svg" />
-          </a>
+          <div class="hamburger" v-on:click="toggleSidebar">
+            <img src="https://desktop-prototype.web.app/img/hamburger.svg" />
+          </div>
+          <p1-logo></p1-logo>
+        </div>
+        <div class="header-middle">
           <WvuiTypeaheadSearch
-            v-show="showStickySearch"
-            buttonLabel="search"
+            buttonLabel="Search"
             formAction="search"
             footerSearchText="search in pages"
-            suggestionsLabel="suggestions label"
-            id="stickySearch"
-            class="subheader"
+            suggestionsLabel="no idea"
+            id="headerSearch"
+            placeholder="Search Wikipedia"
           />
-          <div class="search-container subheader"></div>
-          <!-- Article title -->
-          <div class="article-title-subheader subheader">
-            <p class="title">{{ this.title }}</p>
-            <p v-if="this.tocTitle" class="title-section">
-              | {{ this.tocTitle }}
-              <!-- &nbsp;&nbsp;History -->
-            </p>
-          </div>
+          <a class="button search-icon">
+            <img src="./img/search.svg" />
+          </a>
         </div>
-        <div class="header-right" v-show="loggedIn">
-          <!-- Article tools -->
-          <div class="button-group subheader">
-            <a class="button button-icon">
-              <img src="./img/talk.svg" />
-              <p class="tooltip" data-stringname="discussionString">Talk</p>
+        <div class="header-right">
+          <!-- L O G G E D  O U T -->
+          <div v-show="!loggedIn" class="user-links-container logged-out">
+            <a class="button detailed-menu">
+              <span data-stringname="signUpString">Create account</span>
             </a>
-            <a class="button button-icon">
-              <img src="./img/history.svg" />
-              <p class="tooltip" data-stringname="historyString">History</p>
+            <a
+              class="button button-icon"
+              id="loggedOutUserMenuButton"
+              v-on:click="toggleUserMenu"
+            >
+              <img src="./img/more.svg" />
             </a>
-            <a class="button button-icon">
-              <img src="./img/edit-source.svg" />
-              <p class="tooltip" data-stringname="editSourceString">
-                Edit source
-              </p>
-            </a>
-            <a class="button button-icon">
-              <img src="./img/edit-icon.svg" />
-              <p class="tooltip" data-stringname="editString">Edit</p>
-            </a>
+            <ul class="floating-menu user-menu" v-show="userMenuOpen">
+              <li class="compact-menu">
+                <img src="./img/user.svg" />
+                <span data-stringname="signUpString">Create account</span>
+              </li>
+              <li>
+                <img src="./img/login.svg" />
+                <span v-on:click="toggleLoggedIn">Log in</span>
+              </li>
+              <li class="text">
+                <span data-stringname="loggedOutMessageString"
+                  >Pages for logged-out editors (<a href="">learn more</a
+                  >):</span
+                >
+              </li>
+              <li>
+                <span data-stringname="discussionString">Talk</span>
+              </li>
+              <li>
+                <span data-stringname="contributionsString">Contributions</span>
+              </li>
+            </ul>
           </div>
-          <!-- Language switcher & menu -->
-          <div class="languages-container subheader">
-            <a class="button" onclick="toggleLanguageMenuFloating()">
-              <img src="./img/languages-icon.svg"/><span
-                data-stringname="languagebuttonString"
-              >
-                {{ languages.length }} Languages</span
-              ><img src="./img/down.svg"
+          <!-- L O G G E D  I N -->
+          <div class="user-links-container logged-in" v-show="loggedIn">
+            <a class="button button-icon disabled detailed-menu"
+              ><img src="./img/bell.svg"
             /></a>
-            <div class="language-menu" data-stringname="languageMenuString">
-              <!--<img src="./img/uls.png" />-->
-            </div>
+            <a class="button button-icon disabled detailed-menu"
+              ><img src="./img/inbox.svg"
+            /></a>
+            <a class="button">
+              <img src="./img/user.svg" />
+              <span class="detailed-menu">L May Alcott</span>
+            </a>
+            <a
+              class="button button-icon"
+              id="loggedOutUserMenuButton"
+              v-on:click="toggleUserMenu"
+            >
+              <img src="./img/more.svg" />
+            </a>
+            <ul
+              class="floating-menu user-menu"
+              v-show="userMenuOpen && loggedIn"
+            >
+              <li class="compact-menu">
+                <img src="./img/bell.svg" />
+                <span data-stringname="alertsString">Alerts</span>
+              </li>
+              <li class="compact-menu">
+                <img src="./img/inbox.svg" />
+                <span data-stringname="noticesString">Notices</span>
+              </li>
+              <li>
+                <img src="./img/sandbox.svg" />
+                <span data-stringname="sandboxString">Sandbox</span>
+              </li>
+              <li>
+                <img src="./img/preferences.svg" />
+                <span data-stringname="preferencesString">Preferences</span>
+              </li>
+              <li>
+                <img src="./img/beta.svg" />
+                <span data-stringname="betaString">Beta</span>
+              </li>
+              <li>
+                <img src="./img/watchlist.svg" />
+                <span data-stringname="watchlistString">Watchlist</span>
+              </li>
+              <li>
+                <img src="./img/contribs.svg" />
+                <span data-stringname="contributionsString">Contributions</span>
+              </li>
+              <li>
+                <img src="./img/languages-icon.svg" />
+                <span data-stringname="contributionsString">Translations</span>
+              </li>
+              <li>
+                <img src="./img/commons.svg" />
+                <span data-stringname="contributionsString"
+                  >Uploaded media</span
+                >
+              </li>
+              <li>
+                <span data-stringname="gadgetString">Gadget</span>
+              </li>
+              <li>18:05:22</li>
+              <li>
+                <img src="./img/logout.svg" />
+                <span v-on:click="toggleLoggedIn">Log out</span>
+              </li>
+            </ul>
           </div>
-          <!-- User menu -->
-          <a
-            class="button user-icon subheader"
-            v-on:click="toggleUserMenuFloating"
-          >
-            <img src="./img/user.svg" />
-            <img src="./img/down.svg" />
-          </a>
-          <ul class="floating-menu user-menu" v-show="userMenuFloating">
-            <li class="compact-menu">
-              <img src="./img/bell.svg" />
-              <span data-stringname="alertsString">Alerts</span>
-            </li>
-            <li class="compact-menu">
-              <img src="./img/inbox.svg" />
-              <span data-stringname="noticesString">Notices</span>
-            </li>
-            <li>
-              <img src="./img/sandbox.svg" />
-              <span data-stringname="sandboxString">Sandbox</span>
-            </li>
-            <li>
-              <img src="./img/preferences.svg" />
-              <span data-stringname="preferencesString">Preferences</span>
-            </li>
-            <li>
-              <img src="./img/beta.svg" />
-              <span data-stringname="betaString">Beta</span>
-            </li>
-            <li>
-              <img src="./img/watchlist.svg" />
-              <span data-stringname="watchlistString">Watchlist</span>
-            </li>
-            <li>
-              <img src="./img/contribs.svg" />
-              <span data-stringname="contributionsString">Contributions</span>
-            </li>
-            <li>
-              <img src="./img/languages-icon.svg" />
-              <span data-stringname="contributionsString">Translations</span>
-            </li>
-            <li>
-              <img src="./img/commons.svg" />
-              <span data-stringname="contributionsString">Uploaded media</span>
-            </li>
-            <li>
-              <span data-stringname="gadgetString">Gadget</span>
-            </li>
-            <li>18:05:22</li>
-            <li>
-              <img src="./img/logout.svg" />
-              <span v-on:click="toggleLoggedIn">Log out</span>
-            </li>
-          </ul>
         </div>
       </div>
-    </header>
+      <div
+        class="page-container"
+        v-bind:class="hiddenSidebar ? 'hide-sidebar' : 'show-sidebar'"
+      >
+        <div class="sidebar">
+          <div id="mw-panel">
+            <mw-portal-navigation />
+            <mw-portal-interaction />
+            <mw-portal-tools />
+            <mw-portal-other />
+            <mw-portal-print />
+          </div>
+        </div>
+        <div class="main-wrapper">
+          <main>
+            <div class="page">
+              <div class="header article-header">
+                <left-navigation class="header-left article-talk" />
 
-    <div class="header site-header">
-      <div class="header-left">
-        <div class="hamburger" v-on:click="toggleSidebar">
-          <img src="https://desktop-prototype.web.app/img/hamburger.svg" />
-        </div>
-        <p1-logo></p1-logo>
-      </div>
-      <div class="header-middle">
-        <WvuiTypeaheadSearch
-          buttonLabel="search"
-          formAction="search"
-          footerSearchText="search in pages"
-          suggestionsLabel="no idea"
-          id="headerSearch"
-        />
-        <a class="button search-icon">
-          <img src="./img/search.svg" />
-        </a>
-      </div>
-      <div class="header-right">
-        <!-- L O G G E D  O U T -->
-        <div v-show="!loggedIn" class="user-links-container logged-out">
-          <a class="button detailed-menu">
-            <span data-stringname="signUpString">Create account</span>
-          </a>
-          <a
-            class="button button-icon"
-            id="loggedOutUserMenuButton"
-            v-on:click="toggleUserMenu"
-          >
-            <img src="./img/more.svg" />
-          </a>
-          <ul class="floating-menu user-menu" v-show="userMenuOpen">
-            <li>
-              <img src="./img/login.svg" />
-              <span v-on:click="toggleLoggedIn">Log in</span>
-            </li>
-            <li class="text">
-              <span data-stringname="loggedOutMessageString"
-                >Pages for logged-out editors (<a href="">learn more</a>):</span
-              >
-            </li>
-            <li>
-              <span data-stringname="discussionString">Talk</span>
-            </li>
-            <li>
-              <span data-stringname="contributionsString">Contributions</span>
-            </li>
-          </ul>
-        </div>
-        <!-- L O G G E D  I N -->
-        <div class="user-links-container logged-in" v-show="loggedIn">
-          <a class="button button-icon disabled detailed-menu"
-            ><img src="./img/bell.svg"
-          /></a>
-          <a class="button button-icon disabled detailed-menu"
-            ><img src="./img/inbox.svg"
-          /></a>
-          <a class="button">
-            <img src="./img/user.svg" />
-            <span class="detailed-menu">L May Alcott</span>
-          </a>
-          <a
-            class="button button-icon"
-            id="loggedOutUserMenuButton"
-            v-on:click="toggleUserMenu"
-          >
-            <img src="./img/more.svg" />
-          </a>
-          <ul class="floating-menu user-menu" v-show="userMenuOpen && loggedIn">
-            <li class="compact-menu">
-              <img src="./img/bell.svg" />
-              <span data-stringname="alertsString">Alerts</span>
-            </li>
-            <li class="compact-menu">
-              <img src="./img/inbox.svg" />
-              <span data-stringname="noticesString">Notices</span>
-            </li>
-            <li>
-              <img src="./img/sandbox.svg" />
-              <span data-stringname="sandboxString">Sandbox</span>
-            </li>
-            <li>
-              <img src="./img/preferences.svg" />
-              <span data-stringname="preferencesString">Preferences</span>
-            </li>
-            <li>
-              <img src="./img/beta.svg" />
-              <span data-stringname="betaString">Beta</span>
-            </li>
-            <li>
-              <img src="./img/watchlist.svg" />
-              <span data-stringname="watchlistString">Watchlist</span>
-            </li>
-            <li>
-              <img src="./img/contribs.svg" />
-              <span data-stringname="contributionsString">Contributions</span>
-            </li>
-            <li>
-              <img src="./img/languages-icon.svg" />
-              <span data-stringname="contributionsString">Translations</span>
-            </li>
-            <li>
-              <img src="./img/commons.svg" />
-              <span data-stringname="contributionsString">Uploaded media</span>
-            </li>
-            <li>
-              <span data-stringname="gadgetString">Gadget</span>
-            </li>
-            <li>18:05:22</li>
-            <li>
-              <img src="./img/logout.svg" />
-              <span v-on:click="toggleLoggedIn">Log out</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div
-      class="page-container"
-      v-bind:class="hiddenSidebar ? 'hide-sidebar' : 'show-sidebar'"
-    >
-      <div class="sidebar">
-        <div id="mw-panel">
-          <mw-portal-navigation />
-          <mw-portal-interaction />
-          <mw-portal-tools />
-          <mw-portal-other />
-          <mw-portal-print />
-        </div>
-      </div>
-      <div class="main-wrapper">
-        <main>
-          <div class="page">
-            <div class="header article-header">
-              <left-navigation class="header-left article-talk" />
-
-              <right-navigation
-                class="header-right read-edit-history"
-                v-bind:search="false"
-              />
-            </div>
-            <div class="article-container">
-              <div class="article-title" id="Introduction" v-if="!isMainPage">
-                <div class="header languages-header">
-                  <div class="header-left">
-                    <h1>{{ title }}</h1>
-                  </div>
-                  <div class="header-right">
-                    <div class="languages-container">
-                      <jquery-uls
-                        subtle
-                        v-if="languages.length > 0"
-                        :key="ulsKey"
-                      ></jquery-uls>
+                <right-navigation
+                  class="header-right read-edit-history"
+                  v-bind:search="false"
+                />
+              </div>
+              <div class="article-container">
+                <div class="article-title" id="Introduction" v-if="!isMainPage">
+                  <div class="header languages-header">
+                    <div class="header-left">
+                      <h1>{{ title }}</h1>
+                    </div>
+                    <div class="header-right">
+                      <div class="languages-container">
+                        <jquery-uls
+                          subtle
+                          v-if="languages.length > 0"
+                          :key="ulsKey"
+                        ></jquery-uls>
+                      </div>
                     </div>
                   </div>
+                  <p v-if="!isMainPage" id="new-operator">
+                    {{ $store.state.site.tagline }}
+                  </p>
                 </div>
-                <p v-if="!isMainPage" id="new-operator">
-                  {{ $store.state.site.tagline }}
-                </p>
-              </div>
-              <div class="mw-body mw-body-content content">
-                <mw-core
-                  class="no-toc"
-                  ref="content"
-                  v-on:content-updated="contentUpdated"
-                ></mw-core>
+                <div class="mw-body mw-body-content content">
+                  <mw-core
+                    class="no-toc"
+                    ref="content"
+                    v-on:content-updated="contentUpdated"
+                  ></mw-core>
+                </div>
               </div>
             </div>
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
     </div>
   </body>
@@ -317,6 +336,18 @@
 </style>
 
 <style scoped>
+body {
+  background-color: #f8f9fa;
+}
+.outer-container {
+  position: relative;
+  max-width: 1650px;
+  min-width: 470px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: white;
+}
+
 #vn-logo {
   position: static;
   display: flex;
@@ -325,8 +356,8 @@
 
 .floating-menu.user-menu {
   width: 180px;
-  top: 70px;
-  right: 34px;
+  top: 35px;
+  right: 10px;
   font-size: 14px;
   font-weight: 500;
   list-style: none;
@@ -384,7 +415,7 @@ a.button:hover .tooltip {
   display: none;
 }
 #stickySearch .wvui-input__input {
-  min-width: 20vw;
+  width: 100% !important;
 }
 
 #stickySearch .wvui-typeahead-search__suggestions {
@@ -419,10 +450,11 @@ a.button:hover .tooltip {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
 }
 
 a.button span {
-  padding: 0 8px 0 6px;
+  padding: 0 2px 0 6px;
   white-space: nowrap;
 }
 </style>
@@ -504,10 +536,14 @@ div.header .header-left,
 div.header .header-right {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 div.page-container {
   display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-y: hidden;
 }
 div.page-container div.sidebar {
   background-color: #f6f6f6;
@@ -623,11 +659,27 @@ header .header .header-left {
 header .header .header-left .search {
   margin: 0px 30px 0 20px;
 }
+
+header .header .header-left .article-title-subheader .title-section {
+  position: relative;
+}
+header .header .header-left .article-title-subheader .title-section:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 10%;
+  height: 90%;
+  background-color: #444;
+  border-radius: 1px;
+  width: 2px;
+}
+
 header .header .header-left .article-title-subheader {
   margin: 0px 5px;
   padding-left: 20px;
   border-left: 1px solid #cccccc;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 header .header .header-right div {
@@ -694,7 +746,13 @@ div.site-header div.header-left div.search-container ul.searchResults {
   min-width: 277px;
 }
 div.site-header div.header-right {
+  flex-grow: 1;
   justify-content: flex-end;
+  margin-left: 40px;
+}
+
+div.site-header .header-right .compact-menu {
+  display: none;
 }
 
 div.page-container.hide-sidebar div.sidebar {
@@ -899,7 +957,7 @@ header .header .header-left .article-title-subheader .title {
 }
 .header .header-left .article-title-subheader .title-section {
   margin: 0;
-  padding-left: 15px;
+  padding-left: 30px;
 }
 .header .header-middle {
   flex-grow: 1;
@@ -944,7 +1002,7 @@ header .header .header-right .user-menu {
 header .header .header-right .user-menu li:first-child {
   padding-top: 10px;
 }
-header .header .header-right .user-menu li:last-child {
+.user-links-container.logged-in li:last-child {
   border-top: 1px solid #cccccc;
   padding: 10px 15px 8px 15px;
 }
@@ -993,6 +1051,10 @@ header.logged-in .header .header-left .search-icon {
   display: none;
 }
 
+.languages-container.subheader {
+  margin-left: 0 !important;
+}
+
 @media (max-width: 575px) {
   .site-header {
     justify-content: flex-end;
@@ -1009,7 +1071,7 @@ header.logged-in .header .header-left .search-icon {
   .header .header-middle {
     flex-grow: 0;
   }
-  div.site-header .header-right {
+  div.site-header div.header-right {
     flex-grow: 0;
     margin: 0 0 0 5px;
   }
@@ -1026,6 +1088,10 @@ header.logged-in .header .header-left .search-icon {
 
   .wvui-typeahead-search {
     display: none;
+  }
+
+  div.site-header div.header-right .compact-menu {
+    display: block;
   }
 }
 
@@ -1138,10 +1204,20 @@ export default {
       const nodeName = event.target.nodeName,
         href = event.target.getAttribute("href"),
         currentRouteLanguage = this.$store.state.site.language;
+
       if (nodeName == "A" && /\/wiki\//.test(href)) {
         event.stopPropagation();
         event.preventDefault();
         this.$router.push(`/${currentRouteLanguage}${href}`);
+      }
+
+      console.log(event.target.closest(".floating-menu"));
+      const closeFloatingUserMenu = event.target.closest(
+        ".floating-menu, .header-right"
+      );
+      if (!closeFloatingUserMenu) {
+        this.userMenuFloating = false;
+        this.userMenuOpen = false;
       }
     },
     forceRerender() {
@@ -1213,6 +1289,9 @@ export default {
       offset: 100
     });
     headroom.init();
+    window.addEventListener("blur", function() {
+      headroom.pin();
+    });
   }
 };
 </script>
