@@ -13,6 +13,7 @@
             <a class="button button-icon logo-icon subheader">
               <img src="./img/w.svg" />
             </a>
+
             <!-- Search -->
             <a
               v-on:click="showStickySearch = !showStickySearch"
@@ -79,10 +80,7 @@
               </div>
             </div>
             <!-- User menu -->
-            <a
-              class="button user-icon subheader"
-              v-on:click="toggleUserMenuFloating"
-            >
+            <a class="button user-icon" v-on:click="toggleUserMenuFloating">
               <img src="./img/user.svg" />
               <img src="./img/down.svg" />
             </a>
@@ -398,8 +396,10 @@ a.button:hover .tooltip {
 #stickySearch {
   font-size: 14px;
   z-index: 1;
+  /*
   min-width: 35vw;
   max-width: 600px;
+  */
 }
 #headerSearch-suggestions,
 #stickySearch-suggestions {
@@ -457,9 +457,18 @@ a.button span {
   padding: 0 2px 0 6px;
   white-space: nowrap;
 }
+
+#p-namespaces {
+  background-position: 1px 0;
+}
 </style>
 
 <style scoped>
+.header a.button:hover {
+  background-color: rgba(0, 24, 73, 0.02745098);
+  text-decoration: none;
+}
+
 #left-navigation,
 #right-navigation {
   margin: 0;
@@ -469,9 +478,6 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
-}
-body {
-  background-color: #ffffff;
 }
 
 div.search-container {
@@ -721,6 +727,8 @@ header.headroom--not-top.headroom--pinned .subheader {
 div.hamburger {
   margin-right: 20px;
   cursor: pointer;
+  position: relative;
+  top: -4px;
 }
 div.hamburger:hover {
   opacity: 0.8;
@@ -758,10 +766,13 @@ div.site-header .header-right .compact-menu {
 div.page-container.hide-sidebar div.sidebar {
   transform: translateX(-150px);
 }
-div.page-container.hide-sidebar .main-wrapper {
-  width: 100%;
-  margin-left: -150px;
+@media (max-width: 1400px) {
+  div.page-container.hide-sidebar .main-wrapper {
+    width: 100%;
+    margin-left: -150px;
+  }
 }
+
 div.page-container.hide-sidebar main {
   padding: 0 25px 0 25px;
 }
@@ -783,14 +794,17 @@ div.page-container div.sidebar.no-animation {
 div.page-container div.sidebar img {
   width: 175px;
 }
+
 div.page-container .main-wrapper {
   width: calc(100% - 195px);
   position: relative;
   z-index: 0;
 }
+
 div.page-container .main-wrapper.no-animation {
   transition: none;
 }
+
 div.page-container main {
   max-width: 960px;
   min-width: 475px;
@@ -962,6 +976,7 @@ header .header .header-left .article-title-subheader .title {
 .header .header-middle {
   flex-grow: 1;
   display: flex;
+  justify-content: flex-end;
 }
 .header .header-right {
   justify-content: flex-end;
@@ -1055,6 +1070,10 @@ header.logged-in .header .header-left .search-icon {
   margin-left: 0 !important;
 }
 
+div.site-header .header-right .user-links-container ul li.compact-menu + li {
+  padding-top: 10px;
+}
+
 @media (max-width: 575px) {
   .site-header {
     justify-content: flex-end;
@@ -1110,16 +1129,14 @@ header.logged-in .header .header-left .search-icon {
 }
 
 @media (max-width: 1095px) {
-  .header {
-    padding: 6px 8px 6px 10px;
-  }
   .header-right .languages-container a.button span {
     display: none;
   }
 }
 
 @media (max-width: 1175px) {
-  .header .header-left .logo-icon {
+  .header .header-left .logo-icon,
+  .header .header-right .user-icon {
     display: none;
   }
 
