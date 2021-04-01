@@ -3,6 +3,8 @@
     <div class="outer-container">
       <header
         ref="header"
+        v-on:mouseenter="headroom.pin()"
+        v-on:mouseleave="headroom.unpin()"
         class="floating-header headroom headroom--not-bottom headroom--not-top headroom--pinned"
       >
         <div class="header">
@@ -355,7 +357,7 @@ body {
 .floating-menu.user-menu {
   width: 180px;
   top: 35px;
-  right: 10px;
+  right: 0;
   font-size: 14px;
   font-weight: 500;
   list-style: none;
@@ -394,7 +396,7 @@ a.button:hover .tooltip {
 <style>
 #headerSearch,
 #stickySearch {
-  font-size: 14px;
+  font-size: 16px;
   z-index: 1;
   /*
   min-width: 35vw;
@@ -403,7 +405,7 @@ a.button:hover .tooltip {
 }
 #headerSearch-suggestions,
 #stickySearch-suggestions {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 #headerSearch-suggestions a,
@@ -976,7 +978,7 @@ header .header .header-left .article-title-subheader .title {
 .header .header-middle {
   flex-grow: 1;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .header .header-right {
   justify-content: flex-end;
@@ -1165,7 +1167,8 @@ export default {
       loggedIn: true,
       showStickySearch: false,
       userMenuFloating: false,
-      tocTitle: ""
+      tocTitle: "",
+      headroom: {}
     };
   },
   computed: {
@@ -1302,12 +1305,12 @@ export default {
     }
   },
   mounted: function() {
-    const headroom = new Headroom(this.$refs.header, {
+    this.headroom = new Headroom(this.$refs.header, {
       offset: 100
     });
-    headroom.init();
-    window.addEventListener("blur", function() {
-      headroom.pin();
+    this.headroom.init();
+    window.addEventListener("blur", () => {
+      this.headroom.pin();
     });
   }
 };
