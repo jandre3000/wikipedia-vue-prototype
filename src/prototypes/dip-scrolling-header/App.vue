@@ -96,6 +96,10 @@
                 <span data-stringname="noticesString">Notices</span>
               </li>
               <li>
+                <img src="./img/talk.svg" />
+                <span data-stringname="talkString">Talk</span>
+              </li>
+              <li>
                 <img src="./img/sandbox.svg" />
                 <span data-stringname="sandboxString">Sandbox</span>
               </li>
@@ -224,6 +228,10 @@
               <li class="compact-menu">
                 <img src="./img/inbox.svg" />
                 <span data-stringname="noticesString">Notices</span>
+              </li>
+              <li>
+                <img src="./img/talk.svg" />
+                <span data-stringname="talkString">Talk</span>
               </li>
               <li>
                 <img src="./img/sandbox.svg" />
