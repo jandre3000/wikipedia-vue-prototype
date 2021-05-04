@@ -321,7 +321,6 @@
                 </div>
                 <div class="mw-body mw-body-content content">
                   <mw-core
-                    class="no-toc"
                     ref="content"
                     v-on:content-updated="contentUpdated"
                   ></mw-core>
@@ -484,8 +483,7 @@ a.button span {
   margin: 0;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -776,11 +774,10 @@ div.site-header .header-right .compact-menu {
 div.page-container.hide-sidebar div.sidebar {
   transform: translateX(-150px);
 }
-@media (max-width: 1400px) {
-  div.page-container.hide-sidebar .main-wrapper {
-    width: 100%;
-    margin-left: -150px;
-  }
+
+div.page-container.hide-sidebar .main-wrapper {
+  width: 100%;
+  margin-left: -150px;
 }
 
 div.page-container.hide-sidebar main {
@@ -882,7 +879,7 @@ div.page-container main .page div.article-container div.article-title {
 
 div.languages-header {
   border-bottom: 1px solid #c8ccd1;
-  padding-bottom: 8px;
+  /*padding-bottom: 8px;*/
   margin-bottom: 12px;
 }
 div.languages-header .header-left h1 {

@@ -133,6 +133,7 @@ const actions = {
         msg`uls-plang-title-languages`,
         //right navigation
         msg`vector-view-view`, //read
+        msg`vector-view-edit`,
         msg`vector-view-viewsource`,
         msg`vector-view-history`,
         msg`vector-more-actions`,

@@ -15,6 +15,13 @@
             }}</a>
           </span>
         </li>
+        <li>
+          <span>
+            <a href="#">
+              {{ $store.state.site.i18n["vector-view-edit"] }}
+            </a>
+          </span>
+        </li>
         <li id="ca-viewsource" class="collapsible">
           <span>
             <a

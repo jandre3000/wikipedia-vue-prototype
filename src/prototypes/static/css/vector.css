@@ -3636,6 +3636,17 @@ html[dir='rtl'] .mw-collapsible-leftside-toggle .mw-collapsible-toggle {
   clear: right;
   font-size: 88%;
   line-height: 1.5em;
+  max-width: 22em;
+}
+
+.infobox .infobox-above, .infobox .infobox-title, .infobox caption {
+  font-size: 125%;
+  font-weight: bold;
+  text-align: center;
+}
+
+.infobox .infobox-header, .infobox .infobox-subheader, .infobox .infobox-image, .infobox .infobox-full-data, .infobox .infobox-below {
+  text-align: center;
 }
 
 html[dir='rtl'] .infobox {
