@@ -3625,6 +3625,13 @@ html[dir='rtl'] .mw-collapsible-leftside-toggle .mw-collapsible-toggle {
   float: right;
   text-align: right;
 }
+
+div.float-right, table.float-right, ul.float-right, .float-right {
+  clear: right;
+  float: right;
+  margin: 1em 0 1em 1em;
+}
+
 .infobox {
   border: 1px solid #a2a9b1;
   border-spacing: 3px;
